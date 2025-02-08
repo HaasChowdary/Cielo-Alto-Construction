@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reliable Home Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Reliable Home Services</h1>
+        <p>Your trusted partner for construction, repairs, and more.</p>
+        <button onclick="scrollToForm()">Contact Us</button>
+    </header>
+
+    <section class="logo-container">
+        <img src="logo.png" alt="Home Services Logo" id="dynamicLogo">
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-tabs">
+            <button onclick="showService('construction')">Construction</button>
+            <button onclick="showService('repair')">Repair</button>
+            <button onclick="showService('teardown')">Teardown</button>
+            <button onclick="showService('pest')">Pest Control</button>
+            <button onclick="showService('plumbing')">Plumbing</button>
+            <button onclick="showService('electrical')">Electrical</button>
+            <button onclick="showService('landscaping')">Landscaping</button>
+            <button onclick="showService('roofing')">Roofing</button>
+        </div>
+        <div class="service-content" id="service-content">
+            <img id="service-image" src="construction.jpg" alt="Service Image">
+            <p id="service-description">Expert construction services...</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get a Quote</h2>
+        <form id="contactForm" enctype="multipart/form-data">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <select id="service" required>
+                <option value="construction">Construction</option>
+                <option value="repair">Repair</option>
+                <option value="teardown">Teardown</option>
+                <option value="pest">Pest Services</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="electrical">Electrical Work</option>
+                <option value="landscaping">Landscaping</option>
+                <option value="roofing">Roofing</option>
+            </select>
+            <textarea id="description" placeholder="Brief Description"></textarea>
+            <input type="file" id="image" accept="image/*">
+            <input type="text" id="estimate" readonly>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

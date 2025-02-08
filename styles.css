@@ -1,0 +1,49 @@
+body {
+    font-family: 'VT323', monospace;
+    background-color: #f4f4f4;
+    color: #222;
+    text-align: center;
+}
+
+.header {
+    background-color: #00274D;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+}
+
+button {
+    font-size: 20px;
+    background-color: #D32F2F;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #B71C1C;
+}
+
+.logo-container img {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.service-content img {
+    width: 200px;
+    margin-top: 20px;
+}
+
+#contact {
+    background-color: #004D40;
+    padding: 30px;
+    color: white;
+}
+
+input, select, textarea {
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+}
