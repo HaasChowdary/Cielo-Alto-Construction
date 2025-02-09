@@ -177,10 +177,12 @@
                     <p><i class="fas fa-phone"></i> (555) 123-4567</p>
                     <p><i class="fas fa-envelope"></i> info@cieloaltoconstruction.com</p>
                 </div>
-                <form id="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
+                <form id="contact-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <input type="hidden" name="_subject" value="New submission from Cielo Alto Construction!">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
                     <button type="submit">Send Message</button>
                 </form>
             </div>
