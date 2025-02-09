@@ -30,61 +30,65 @@
         <h2>Our Services</h2>
         <div id="residential" class="service-category">
             <h3>Residential</h3>
-            <div class="service-card">
-                <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
-                <p>Transform your bathroom into a relaxing oasis with our expert renovations.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
-                <p>Upgrade your kitchen for better functionality and modern aesthetics.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Flooring">Flooring</button>
-                <p>Choose from a variety of durable and stylish flooring options.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Flipping/Full Renovation">Full Renovation</button>
-                <p>Bring new life to your home with our comprehensive renovation services.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Roofing">Roofing</button>
-                <p>Keep your home safe with a strong, reliable roof.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Fencing">Fencing</button>
-                <p>Secure your property with high-quality fencing solutions.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Gutters">Gutters</button>
-                <p>Protect your home with a durable gutter system.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Concrete">Concrete</button>
-                <p>Solid foundations and durable concrete work for various projects.</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
+                    <p>Transform your bathroom into a relaxing oasis with our expert renovations.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
+                    <p>Upgrade your kitchen for better functionality and modern aesthetics.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Flooring">Flooring</button>
+                    <p>Choose from a variety of durable and stylish flooring options.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Flipping/Full Renovation">Full Renovation</button>
+                    <p>Bring new life to your home with our comprehensive renovation services.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Roofing">Roofing</button>
+                    <p>Keep your home safe with a strong, reliable roof.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Fencing">Fencing</button>
+                    <p>Secure your property with high-quality fencing solutions.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Gutters">Gutters</button>
+                    <p>Protect your home with a durable gutter system.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Concrete">Concrete</button>
+                    <p>Solid foundations and durable concrete work for various projects.</p>
+                </div>
             </div>
         </div>
 
         <div id="commercial" class="service-category">
             <h3>Commercial</h3>
-            <div class="service-card">
-                <button class="service-option" data-service="Office Space">Office Space</button>
-                <p>Design your workspace to foster productivity and comfort.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Salon">Salon</button>
-                <p>Create a stylish and welcoming environment for your clients.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Restaurant">Restaurant</button>
-                <p>Design a space that invites customers to enjoy their meals in comfort.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Bar">Bar</button>
-                <p>Build a lively and engaging atmosphere for your customers.</p>
-            </div>
-            <div class="service-card">
-                <button class="service-option" data-service="Clinic">Clinic</button>
-                <p>Build a healing environment with our clinic design and renovation services.</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <button class="service-option" data-service="Office Space">Office Space</button>
+                    <p>Design your workspace to foster productivity and comfort.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Salon">Salon</button>
+                    <p>Create a stylish and welcoming environment for your clients.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Restaurant">Restaurant</button>
+                    <p>Design a space that invites customers to enjoy their meals in comfort.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Bar">Bar</button>
+                    <p>Build a lively and engaging atmosphere for your customers.</p>
+                </div>
+                <div class="service-card">
+                    <button class="service-option" data-service="Clinic">Clinic</button>
+                    <p>Build a healing environment with our clinic design and renovation services.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -93,36 +97,44 @@
     <section id="contact-form" class="hidden">
         <h2>Get in Touch</h2>
         <form id="submission-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-            <label for="service-type">Which service are you interested in?</label>
-            <input type="text" id="service-type" name="service-type" required readonly>
+            <div class="form-group">
+                <label for="service-type">Which service are you interested in?</label>
+                <input type="text" id="service-type" name="service-type" required readonly>
+            </div>
 
-            <label for="has-documents">Do you have construction documents or are you working with an architect?</label>
-            <input type="radio" id="yes" name="documents" value="Yes">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="documents" value="No">
-            <label for="no">No</label>
+            <div class="form-group">
+                <label for="has-documents">Do you have construction documents or are you working with an architect?</label>
+                <input type="radio" id="yes" name="documents" value="Yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="documents" value="No">
+                <label for="no">No</label>
+            </div>
 
-            <div id="file-upload" class="hidden">
+            <div id="file-upload" class="form-group hidden">
                 <label for="file">Upload Construction Documents or Floorplan</label>
                 <input type="file" id="file" name="file">
             </div>
 
-            <div id="consultation" class="hidden">
-                <label for="consultation">Would you like a consultation?</label>
-                <input type="text" id="consultation" name="consultation">
+            <div id="consultation" class="form-group">
+                <label for="consultation-checkbox">Would you like a consultation?</label>
+                <input type="checkbox" id="consultation-checkbox" name="consultation">
             </div>
 
-            <label for="upload-image">Upload a photo of the area needing renovation (optional)</label>
-            <input type="file" id="upload-image" name="upload-image">
+            <div class="form-group">
+                <label for="upload-image">Upload a photo of the area needing renovation (optional)</label>
+                <input type="file" id="upload-image" name="upload-image">
+            </div>
 
             <!-- Estimated cost section -->
-            <div id="cost-section" class="hidden">
+            <div id="cost-section" class="form-group hidden">
                 <label for="estimated-cost">Estimated Cost:</label>
                 <input type="text" id="estimated-cost" name="estimated-cost" readonly>
             </div>
 
-            <!-- Submit button, initially disabled -->
-            <input type="submit" id="submit-btn" value="Submit" disabled>
+            <!-- Submit button -->
+            <div class="form-group">
+                <input type="submit" id="submit-btn" value="Submit">
+            </div>
         </form>
     </section>
 
@@ -132,4 +144,5 @@
     </footer>
 </body>
 </html>
+
 
