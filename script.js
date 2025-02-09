@@ -1,113 +1,136 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Scroll to the form when the "Contact Us" button is clicked
-    document.getElementById('contact-btn').addEventListener('click', function() {
-        // Scroll to form
-        document.getElementById('contact-form').scrollIntoView({
-            behavior: 'smooth'
-        });
-        document.getElementById('contact-form').classList.remove('hidden');
-    });
+// script.js
 
-    // Listen for clicks on Residential and Commercial options
-    document.getElementById('residential-btn').addEventListener('click', function() {
-        toggleServiceOptions('residential');
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init();
 
-    document.getElementById('commercial-btn').addEventListener('click', function() {
-        toggleServiceOptions('commercial');
-    });
+    // GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Dynamic Service Option Handling
-    function toggleServiceOptions(type) {
-        const residentialOptions = document.getElementById('residential-options');
-        const commercialOptions = document.getElementById('commercial-options');
-        const consultationSection = document.getElementById('consultation');
-        const costSection = document.getElementById('cost-section');
-        const imageUpload = document.getElementById('image-upload');
-        
-        if (type === 'residential') {
-            residentialOptions.classList.remove('hidden');
-            commercialOptions.classList.add('hidden');
-            imageUpload.classList.remove('hidden');
-            consultationSection.classList.remove('hidden');
-            costSection.classList.remove('hidden');
+    // Navbar scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
         } else {
-            commercialOptions.classList.remove('hidden');
-            residentialOptions.classList.add('hidden');
-            imageUpload.classList.add('hidden');
-            consultationSection.classList.add('hidden');
-            costSection.classList.add('hidden');
+            header.classList.remove('scrolled');
         }
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('#main-nav ul');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Service item click handler
+    const serviceItems = document.querySelectorAll('.service-item');
+    const projectForm = document.getElementById('project-form');
+    const serviceTypeInput = document.getElementById('service-type');
+
+    serviceItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const service = item.getAttribute('data-service');
+            serviceTypeInput.value = service;
+            projectForm.classList.remove('hidden');
+            projectForm.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Form submission handler
+    const constructionForm = document.getElementById('construction-form');
+    constructionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically send the form data to a server
+        alert('Form submitted successfully!');
+    });
+
+    // Document status change handler
+    const documentStatus = document.getElementById('document-status');
+    const documentUpload = document.getElementById('document-upload');
+    const consultationRequest = document.getElementById('consultation-request');
+
+    documentStatus.addEventListener('change', function() {
+        if (this.value === 'yes') {
+            documentUpload.classList.remove('hidden');
+            consultationRequest.classList.add('hidden');
+        } else {
+            documentUpload.classList.add('hidden');
+            consultationRequest.classList.remove('hidden');
+        }
+    });
+
+    // Cost estimate calculator
+    const squareFootageInput = document.getElementById('square-footage');
+    const costEstimate = document.getElementById('cost-estimate');
+
+    squareFootageInput.addEventListener('input', function() {
+        const estimate = calculateEstimate(serviceTypeInput.value, this.value);
+        costEstimate.textContent = `Estimated Cost: $${estimate.toFixed(2)}`;
+        costEstimate.classList.remove('hidden');
+    });
+
+    function calculateEstimate(serviceType, squareFootage) {
+        const rates = {
+            bathroom: 250,
+            kitchen: 300,
+            flooring: 10,
+            renovation: 150,
+            salon: 200,
+            restaurant: 250,
+            bar: 220,
+            clinic: 280,
+            office: 180
+        };
+        return squareFootage * rates[serviceType];
     }
 
-    // Capture service type and fill the service field in the form
-    const serviceButtons = document.querySelectorAll('.service-option');
-    serviceButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const service = this.getAttribute('data-service');
-            document.getElementById('service-type').value = service;
-            
-            // Update estimated cost based on the selected service
-            calculateEstimatedCost(service);
-        });
+    // Portfolio grid
+    const portfolioGrid = document.querySelector('.portfolio-grid');
+    const portfolioItems = [
+        { image: 'project1.jpg', title: 'Modern Kitchen Renovation' },
+        { image: 'project2.jpg', title: 'Luxury Bathroom Remodel' },
+        { image: 'project3.jpg', title: 'Commercial Office Space' },
+        { image: 'project4.jpg', title: 'Restaurant Interior Design' },
+        { image: 'project5.jpg', title: 'Residential Home Extension' },
+        { image: 'project6.jpg', title: 'Medical Clinic Buildout' }
+    ];
+
+    portfolioItems.forEach(item => {
+        const portfolioItem = document.createElement('div');
+        portfolioItem.classList.add('portfolio-item');
+        portfolioItem.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <div class="portfolio-overlay">
+                <h3>${item.title}</h3>
+            </div>
+        `;
+        portfolioGrid.appendChild(portfolioItem);
     });
 
-    // Estimated cost calculation based on selected service
-    function calculateEstimatedCost(service) {
-        let estimatedCost = 0;
-
-        // Residential Services
-        const residentialCosts = {
-            "Bathroom Renovation": 5000,
-            "Kitchen Renovation": 7000,
-            "Full Renovation": 15000,
-            "Flooring": 3000,
-            "Roofing": 5000,
-            "Fencing": 3000,
-            "Gutters": 2000,
-            "Concrete": 4000
-        };
-
-        // Commercial Services
-        const commercialCosts = {
-            "Salon": 20000,
-            "Restaurant": 30000,
-            "Bar": 25000,
-            "Clinic": 22000,
-            "Office Space": 15000
-        };
-
-        // Check if it's a Residential or Commercial service
-        if (residentialCosts[service]) {
-            estimatedCost = residentialCosts[service];
-        } else if (commercialCosts[service]) {
-            estimatedCost = commercialCosts[service];
-        }
-
-        // Display estimated cost in the form
-        document.getElementById('estimated-cost').value = `$${estimatedCost.toLocaleString()}`;
-    }
-
-    // Consultation checkbox behavior
-    document.getElementById('consultation-checkbox').addEventListener('change', function() {
-        const consultationDetails = document.getElementById('consultation-details');
-        if (this.checked) {
-            consultationDetails.classList.remove('hidden');
-        } else {
-            consultationDetails.classList.add('hidden');
-        }
+    // Map initialization
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-118.2437, 34.0522], // Los Angeles coordinates
+        zoom: 12
     });
 
-    // Handle file upload visibility
-    const fileRadioButtons = document.querySelectorAll('input[name="documents"]');
-    fileRadioButtons.forEach(button => {
-        button.addEventListener('change', function() {
-            const fileUploadSection = document.getElementById('file-upload');
-            if (this.value === 'Yes') {
-                fileUploadSection.classList.remove('hidden');
-            } else {
-                fileUploadSection.classList.add('hidden');
-            }
-        });
-    });
+    // Add marker to map
+    new mapboxgl.Marker()
+        .setLngLat([-118.2437, 34.0522])
+        .addTo(map);
 });
