@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction Inc.</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Main header with dynamic logo -->
+    <!-- Header with dynamic logo -->
     <header>
         <div class="logo">
             <img src="logo.png" alt="Cielo Alto Construction Inc.">
@@ -18,31 +19,77 @@
         </nav>
     </header>
 
-    <!-- Services section -->
+    <!-- Hero Section with welcoming color and inviting message -->
+    <section id="hero">
+        <h1>Welcome to Cielo Alto Construction Inc.</h1>
+        <p>Your trusted partner for residential and commercial construction needs. Let’s build something great together!</p>
+    </section>
+
+    <!-- Services Section -->
     <section id="services">
-        <h1>Our Services</h1>
+        <h2>Our Services</h2>
         <div id="residential" class="service-category">
-            <h2>Residential</h2>
-            <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
-            <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
-            <button class="service-option" data-service="Flooring">Flooring</button>
-            <button class="service-option" data-service="Flipping/Full Renovation">Flipping/Full Renovation</button>
-            <button class="service-option" data-service="Roofing">Roofing</button>
-            <button class="service-option" data-service="Fencing">Fencing</button>
-            <button class="service-option" data-service="Gutters">Gutters</button>
-            <button class="service-option" data-service="Concrete">Concrete</button>
+            <h3>Residential</h3>
+            <div class="service-card">
+                <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
+                <p>Transform your bathroom into a relaxing oasis with our expert renovations.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
+                <p>Upgrade your kitchen for better functionality and modern aesthetics.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Flooring">Flooring</button>
+                <p>Choose from a variety of durable and stylish flooring options.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Flipping/Full Renovation">Full Renovation</button>
+                <p>Bring new life to your home with our comprehensive renovation services.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Roofing">Roofing</button>
+                <p>Keep your home safe with a strong, reliable roof.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Fencing">Fencing</button>
+                <p>Secure your property with high-quality fencing solutions.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Gutters">Gutters</button>
+                <p>Protect your home with a durable gutter system.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Concrete">Concrete</button>
+                <p>Solid foundations and durable concrete work for various projects.</p>
+            </div>
         </div>
+
         <div id="commercial" class="service-category">
-            <h2>Commercial</h2>
-            <button class="service-option" data-service="Office Space">Office Space</button>
-            <button class="service-option" data-service="Salon">Salon</button>
-            <button class="service-option" data-service="Restaurant">Restaurant</button>
-            <button class="service-option" data-service="Bar">Bar</button>
-            <button class="service-option" data-service="Clinic">Clinic</button>
+            <h3>Commercial</h3>
+            <div class="service-card">
+                <button class="service-option" data-service="Office Space">Office Space</button>
+                <p>Design your workspace to foster productivity and comfort.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Salon">Salon</button>
+                <p>Create a stylish and welcoming environment for your clients.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Restaurant">Restaurant</button>
+                <p>Design a space that invites customers to enjoy their meals in comfort.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Bar">Bar</button>
+                <p>Build a lively and engaging atmosphere for your customers.</p>
+            </div>
+            <div class="service-card">
+                <button class="service-option" data-service="Clinic">Clinic</button>
+                <p>Build a healing environment with our clinic design and renovation services.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Form section, hidden by default -->
+    <!-- Form Section, initially hidden -->
     <section id="contact-form" class="hidden">
         <h2>Get in Touch</h2>
         <form id="submission-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
@@ -79,9 +126,10 @@
         </form>
     </section>
 
-    <!-- Footer section -->
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Cielo Alto Construction Inc. | <a href="mailto:info@cieloaltoconstruction.com">info@cieloaltoconstruction.com</a></p>
     </footer>
 </body>
 </html>
+
