@@ -3,61 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reliable Home Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Cielo Alto Construction Inc.</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        <h1>Reliable Home Services</h1>
-        <p>Your trusted partner for construction, repairs, and more.</p>
-        <button onclick="scrollToForm()">Contact Us</button>
+    <!-- Main header with dynamic logo -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Cielo Alto Construction Inc.">
+        </div>
+        <nav>
+            <button id="contact-btn">Contact Us</button>
+        </nav>
     </header>
 
-    <section class="logo-container">
-        <img src="logo.png" alt="Home Services Logo" id="dynamicLogo">
-    </section>
-
+    <!-- Services section -->
     <section id="services">
-        <h2>Our Services</h2>
-        <div class="service-tabs">
-            <button onclick="showService('construction')">Construction</button>
-            <button onclick="showService('repair')">Repair</button>
-            <button onclick="showService('teardown')">Teardown</button>
-            <button onclick="showService('pest')">Pest Control</button>
-            <button onclick="showService('plumbing')">Plumbing</button>
-            <button onclick="showService('electrical')">Electrical</button>
-            <button onclick="showService('landscaping')">Landscaping</button>
-            <button onclick="showService('roofing')">Roofing</button>
+        <h1>Our Services</h1>
+        <div id="residential" class="service-category">
+            <h2>Residential</h2>
+            <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
+            <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
+            <button class="service-option" data-service="Flooring">Flooring</button>
+            <button class="service-option" data-service="Flipping/Full Renovation">Flipping/Full Renovation</button>
+            <button class="service-option" data-service="Roofing">Roofing</button>
+            <button class="service-option" data-service="Fencing">Fencing</button>
+            <button class="service-option" data-service="Gutters">Gutters</button>
+            <button class="service-option" data-service="Concrete">Concrete</button>
         </div>
-        <div class="service-content" id="service-content">
-            <img id="service-image" src="construction.jpg" alt="Service Image">
-            <p id="service-description">Expert construction services...</p>
+        <div id="commercial" class="service-category">
+            <h2>Commercial</h2>
+            <button class="service-option" data-service="Office Space">Office Space</button>
+            <button class="service-option" data-service="Salon">Salon</button>
+            <button class="service-option" data-service="Restaurant">Restaurant</button>
+            <button class="service-option" data-service="Bar">Bar</button>
+            <button class="service-option" data-service="Clinic">Clinic</button>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Get a Quote</h2>
-        <form id="contactForm" enctype="multipart/form-data">
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="email" id="email" placeholder="Email Address" required>
-            <select id="service" required>
-                <option value="construction">Construction</option>
-                <option value="repair">Repair</option>
-                <option value="teardown">Teardown</option>
-                <option value="pest">Pest Services</option>
-                <option value="plumbing">Plumbing</option>
-                <option value="electrical">Electrical Work</option>
-                <option value="landscaping">Landscaping</option>
-                <option value="roofing">Roofing</option>
-            </select>
-            <textarea id="description" placeholder="Brief Description"></textarea>
-            <input type="file" id="image" accept="image/*">
-            <input type="text" id="estimate" readonly>
-            <button type="submit">Submit</button>
+    <!-- Form section, hidden by default -->
+    <section id="contact-form" class="hidden">
+        <h2>Get in Touch</h2>
+        <form id="submission-form" action="https://formsubmit.co/YOUR_EMAIL" method="POST" enctype="multipart/form-data">
+            <label for="service-type">Which service are you interested in?</label>
+            <input type="text" id="service-type" name="service-type" required readonly>
+
+            <label for="has-documents">Do you have construction documents or are you working with an architect?</label>
+            <input type="radio" id="yes" name="documents" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="documents" value="No">
+            <label for="no">No</label>
+
+            <div id="file-upload" class="hidden">
+                <label for="file">Upload Construction Documents or Floorplan</label>
+                <input type="file" id="file" name="file">
+            </div>
+
+            <div id="consultation" class="hidden">
+                <label for="consultation">Would you like a consultation?</label>
+                <input type="text" id="consultation" name="consultation">
+            </div>
+
+            <label for="upload-image">Upload a photo of the area needing renovation (optional)</label>
+            <input type="file" id="upload-image" name="upload-image">
+
+            <!-- Estimated cost section -->
+            <div id="cost-section" class="hidden">
+                <label for="estimated-cost">Estimated Cost:</label>
+                <input type="text" id="estimated-cost" name="estimated-cost" readonly>
+            </div>
+
+            <!-- Submit button, initially disabled -->
+            <input type="submit" id="submit-btn" value="Submit" disabled>
         </form>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2025 Cielo Alto Construction Inc. | <a href="mailto:info@cieloaltoconstruction.com">info@cieloaltoconstruction.com</a></p>
+    </footer>
 </body>
 </html>
