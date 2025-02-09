@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Map initialization
-    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFhc2Nob3dkYXJ5IiwiYSI6ImNtNnd6aW5kczBnMGQybm9nMHlrNDc1aGoifQ.XllmKprB1846Y--Zr7e8MA';
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
