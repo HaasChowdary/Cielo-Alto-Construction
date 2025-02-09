@@ -1,41 +1,61 @@
-function scrollToForm() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
-
-function showService(service) {
-    const images = {
-        construction: "construction.jpg",
-        repair: "repair.jpg",
-        teardown: "teardown.jpg",
-        pest: "pest.jpg",
-        plumbing: "plumbing.jpg",
-        electrical: "electrical.jpg",
-        landscaping: "landscaping.jpg",
-        roofing: "roofing.jpg"
-    };
-    document.getElementById("service-image").src = images[service];
-}
-
-document.getElementById('service').addEventListener('change', function() {
-    const prices = { construction: 5000, repair: 200, teardown: 1500, pest: 300, plumbing: 250, electrical: 400, landscaping: 1000, roofing: 3500 };
-    document.getElementById('estimate').value = `$${prices[this.value] || 0}`;
+document.getElementById('contact-btn').addEventListener('click', function() {
+    document.getElementById('contact-form').classList.toggle('hidden');
 });
 
-document.getElementById('contactForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
+// Service price list
+const servicePrices = {
+    "Bathroom Renovation": 10000,
+    "Kitchen Renovation": 15000,
+    "Flooring": 5000,
+    "Flipping/Full Renovation": 20000,
+    "Roofing": 8000,
+    "Fencing": 6000,
+    "Gutters": 4000,
+    "Concrete": 6000,
+    "Office Space": 50000,
+    "Salon": 40000,
+    "Restaurant": 60000,
+    "Bar": 35000,
+    "Clinic": 45000
+};
 
-    const formData = new FormData();
-    formData.append("name", document.getElementById('name').value);
-    formData.append("email", document.getElementById('email').value);
-    formData.append("service", document.getElementById('service').value);
-    formData.append("description", document.getElementById('description').value);
-    formData.append("image", document.getElementById('image').files[0]);
+// Handle service selection for residential and commercial
+const residentialButtons = document.querySelectorAll('#residential .service-option');
+const commercialButtons = document.querySelectorAll('#commercial .service-option');
 
-    const response = await fetch("https://formsubmit.co/peterxf2499@gmail.com", { method: "POST", body: formData });
-    if (response.ok) {
-        alert("Form submitted successfully!");
-        document.getElementById('contactForm').reset();
-    } else {
-        alert("Error submitting the form.");
-    }
+residentialButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        document.getElementById('contact-form').style.display = 'block';
+        document.getElementById('service-type').value = button.textContent;
+        calculateCost(button.textContent);
+    });
+});
+
+commercialButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        document.getElementById('contact-form').style.display = 'block';
+        document.getElementById('service-type').value = button.textContent;
+        calculateCost(button.textContent);
+    });
+});
+
+// Cost calculation function
+function calculateCost(service) {
+    const estimatedCost = servicePrices[service] || 0;
+    document.getElementById('estimated-cost').value = `$${estimatedCost.toLocaleString()}`;
+    document.getElementById('cost-section').classList.remove('hidden');
+    document.getElementById('submit-btn').disabled = false; // Enable submit button after cost is calculated
+}
+
+// Handle the document upload logic
+document.querySelectorAll('input[name="documents"]').forEach(input => {
+    input.addEventListener('change', function() {
+        if (this.value === 'Yes') {
+            document.getElementById('file-upload').classList.remove('hidden');
+            document.getElementById('consultation').classList.add('hidden');
+        } else {
+            document.getElementById('file-upload').classList.add('hidden');
+            document.getElementById('consultation').classList.remove('hidden');
+        }
+    });
 });
