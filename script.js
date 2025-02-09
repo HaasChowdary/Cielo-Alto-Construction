@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS
     AOS.init();
@@ -133,4 +131,36 @@ document.addEventListener('DOMContentLoaded', function() {
     new mapboxgl.Marker()
         .setLngLat([-118.2437, 34.0522])
         .addTo(map);
+
+    // FormSubmit.co form handling
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                this.reset();
+                alert('Thanks for your submission!');
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        const errorMessages = data['errors'].map(error => error['message']).join(', ');
+                        alert('Form submission failed. Please try again. Error(s): ' + errorMessages);
+                    } else {
+                        alert('Oops! There was a problem submitting your form');
+                    }
+                });
+            }
+        }).catch(error => {
+            alert('Oops! There was a problem submitting your form');
+        });
+    });
 });
