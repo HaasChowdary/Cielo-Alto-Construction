@@ -46,8 +46,47 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', function() {
             const service = this.getAttribute('data-service');
             document.getElementById('service-type').value = service;
+            
+            // Update estimated cost based on the selected service
+            calculateEstimatedCost(service);
         });
     });
+
+    // Estimated cost calculation based on selected service
+    function calculateEstimatedCost(service) {
+        let estimatedCost = 0;
+
+        // Residential Services
+        const residentialCosts = {
+            "Bathroom Renovation": 5000,
+            "Kitchen Renovation": 7000,
+            "Full Renovation": 15000,
+            "Flooring": 3000,
+            "Roofing": 5000,
+            "Fencing": 3000,
+            "Gutters": 2000,
+            "Concrete": 4000
+        };
+
+        // Commercial Services
+        const commercialCosts = {
+            "Salon": 20000,
+            "Restaurant": 30000,
+            "Bar": 25000,
+            "Clinic": 22000,
+            "Office Space": 15000
+        };
+
+        // Check if it's a Residential or Commercial service
+        if (residentialCosts[service]) {
+            estimatedCost = residentialCosts[service];
+        } else if (commercialCosts[service]) {
+            estimatedCost = commercialCosts[service];
+        }
+
+        // Display estimated cost in the form
+        document.getElementById('estimated-cost').value = `$${estimatedCost.toLocaleString()}`;
+    }
 
     // Consultation checkbox behavior
     document.getElementById('consultation-checkbox').addEventListener('change', function() {
