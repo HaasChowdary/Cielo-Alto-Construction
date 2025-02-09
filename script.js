@@ -1,61 +1,76 @@
-document.getElementById('contact-btn').addEventListener('click', function() {
-    document.getElementById('contact-form').classList.toggle('hidden');
-});
+// Wait for the document to fully load before executing
+document.addEventListener("DOMContentLoaded", function() {
+    // Scroll to the form when the "Contact Us" button is clicked
+    document.getElementById('contact-btn').addEventListener('click', function() {
+        document.getElementById('contact-form').scrollIntoView({
+            behavior: 'smooth'
+        });
+        document.getElementById('contact-form').classList.remove('hidden');
+    });
 
-// Service price list
-const servicePrices = {
-    "Bathroom Renovation": 10000,
-    "Kitchen Renovation": 15000,
-    "Flooring": 5000,
-    "Flipping/Full Renovation": 20000,
-    "Roofing": 8000,
-    "Fencing": 6000,
-    "Gutters": 4000,
-    "Concrete": 6000,
-    "Office Space": 50000,
-    "Salon": 40000,
-    "Restaurant": 60000,
-    "Bar": 35000,
-    "Clinic": 45000
-};
+    // Listen for clicks on the service option buttons to populate the form with service details
+    const serviceButtons = document.querySelectorAll('.service-option');
+    serviceButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const serviceName = this.getAttribute('data-service');
+            document.getElementById('service-type').value = serviceName;
 
-// Handle service selection for residential and commercial
-const residentialButtons = document.querySelectorAll('#residential .service-option');
-const commercialButtons = document.querySelectorAll('#commercial .service-option');
+            // Show the "Consultation" option for residential services
+            if (serviceName === "Bathroom Renovation" || serviceName === "Kitchen Renovation" || serviceName === "Full Renovation") {
+                document.getElementById('consultation').classList.remove('hidden');
+                document.getElementById('cost-section').classList.remove('hidden');
+                document.getElementById('estimated-cost').value = calculateEstimatedCost(serviceName);
+            } else {
+                document.getElementById('consultation').classList.add('hidden');
+                document.getElementById('cost-section').classList.add('hidden');
+            }
+        });
+    });
 
-residentialButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        document.getElementById('contact-form').style.display = 'block';
-        document.getElementById('service-type').value = button.textContent;
-        calculateCost(button.textContent);
+    // Show/hide file upload section based on whether user has construction documents
+    document.querySelectorAll('input[name="documents"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const fileUploadSection = document.getElementById('file-upload');
+            if (this.value === "Yes") {
+                fileUploadSection.classList.remove('hidden');
+            } else {
+                fileUploadSection.classList.add('hidden');
+            }
+        });
     });
 });
 
-commercialButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        document.getElementById('contact-form').style.display = 'block';
-        document.getElementById('service-type').value = button.textContent;
-        calculateCost(button.textContent);
-    });
-});
-
-// Cost calculation function
-function calculateCost(service) {
-    const estimatedCost = servicePrices[service] || 0;
-    document.getElementById('estimated-cost').value = `$${estimatedCost.toLocaleString()}`;
-    document.getElementById('cost-section').classList.remove('hidden');
-    document.getElementById('submit-btn').disabled = false; // Enable submit button after cost is calculated
+// Function to calculate the estimated cost based on the service type
+function calculateEstimatedCost(serviceName) {
+    let costEstimate = 0;
+    switch(serviceName) {
+        case "Bathroom Renovation":
+            costEstimate = "$10,000 - $15,000";
+            break;
+        case "Kitchen Renovation":
+            costEstimate = "$15,000 - $25,000";
+            break;
+        case "Full Renovation":
+            costEstimate = "$30,000 - $50,000";
+            break;
+        case "Flooring":
+            costEstimate = "$5,000 - $10,000";
+            break;
+        case "Roofing":
+            costEstimate = "$8,000 - $15,000";
+            break;
+        case "Fencing":
+            costEstimate = "$3,000 - $8,000";
+            break;
+        case "Gutters":
+            costEstimate = "$1,000 - $3,000";
+            break;
+        case "Concrete":
+            costEstimate = "$10,000 - $20,000";
+            break;
+        default:
+            costEstimate = "$Unknown";
+            break;
+    }
+    return costEstimate;
 }
-
-// Handle the document upload logic
-document.querySelectorAll('input[name="documents"]').forEach(input => {
-    input.addEventListener('change', function() {
-        if (this.value === 'Yes') {
-            document.getElementById('file-upload').classList.remove('hidden');
-            document.getElementById('consultation').classList.add('hidden');
-        } else {
-            document.getElementById('file-upload').classList.add('hidden');
-            document.getElementById('consultation').classList.remove('hidden');
-        }
-    });
-});
