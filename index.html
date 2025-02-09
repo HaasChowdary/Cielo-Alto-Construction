@@ -5,144 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction Inc.</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Header with dynamic logo -->
+    <!-- Header with Contact Us Button -->
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Cielo Alto Construction Inc.">
-        </div>
-        <nav>
-            <button id="contact-btn">Contact Us</button>
-        </nav>
+        <h1>Cielo Alto Construction Inc.</h1>
+        <button id="contact-btn">Contact Us</button>
     </header>
 
-    <!-- Hero Section with welcoming color and inviting message -->
-    <section id="hero">
-        <h1>Welcome to Cielo Alto Construction Inc.</h1>
-        <p>Your trusted partner for residential and commercial construction needs. Let’s build something great together!</p>
+    <!-- Service Options (Residential / Commercial) -->
+    <section id="service-options">
+        <div id="residential-btn" class="service-category">Residential Services</div>
+        <div id="commercial-btn" class="service-category">Commercial Services</div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div id="residential" class="service-category">
-            <h3>Residential</h3>
-            <div class="service-grid">
-                <div class="service-card">
-                    <button class="service-option" data-service="Bathroom Renovation">Bathroom</button>
-                    <p>Transform your bathroom into a relaxing oasis with our expert renovations.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Kitchen Renovation">Kitchen</button>
-                    <p>Upgrade your kitchen for better functionality and modern aesthetics.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Flooring">Flooring</button>
-                    <p>Choose from a variety of durable and stylish flooring options.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Flipping/Full Renovation">Full Renovation</button>
-                    <p>Bring new life to your home with our comprehensive renovation services.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Roofing">Roofing</button>
-                    <p>Keep your home safe with a strong, reliable roof.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Fencing">Fencing</button>
-                    <p>Secure your property with high-quality fencing solutions.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Gutters">Gutters</button>
-                    <p>Protect your home with a durable gutter system.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Concrete">Concrete</button>
-                    <p>Solid foundations and durable concrete work for various projects.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="commercial" class="service-category">
-            <h3>Commercial</h3>
-            <div class="service-grid">
-                <div class="service-card">
-                    <button class="service-option" data-service="Office Space">Office Space</button>
-                    <p>Design your workspace to foster productivity and comfort.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Salon">Salon</button>
-                    <p>Create a stylish and welcoming environment for your clients.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Restaurant">Restaurant</button>
-                    <p>Design a space that invites customers to enjoy their meals in comfort.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Bar">Bar</button>
-                    <p>Build a lively and engaging atmosphere for your customers.</p>
-                </div>
-                <div class="service-card">
-                    <button class="service-option" data-service="Clinic">Clinic</button>
-                    <p>Build a healing environment with our clinic design and renovation services.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Residential Service Options -->
+    <section id="residential-options" class="service-options hidden">
+        <button class="service-option" data-service="Bathroom Renovation">Bathroom Renovation</button>
+        <button class="service-option" data-service="Kitchen Renovation">Kitchen Renovation</button>
+        <button class="service-option" data-service="Full Renovation">Full Renovation</button>
+        <button class="service-option" data-service="Flooring">Flooring</button>
+        <button class="service-option" data-service="Roofing">Roofing</button>
+        <button class="service-option" data-service="Fencing">Fencing</button>
+        <button class="service-option" data-service="Gutters">Gutters</button>
+        <button class="service-option" data-service="Concrete">Concrete</button>
     </section>
 
-    <!-- Form Section, initially hidden -->
+    <!-- Commercial Service Options -->
+    <section id="commercial-options" class="service-options hidden">
+        <button class="service-option" data-service="Salon">Salon</button>
+        <button class="service-option" data-service="Restaurant">Restaurant</button>
+        <button class="service-option" data-service="Bar">Bar</button>
+        <button class="service-option" data-service="Clinic">Clinic</button>
+        <button class="service-option" data-service="Office Space">Office Space</button>
+    </section>
+
+    <!-- Contact Form -->
     <section id="contact-form" class="hidden">
-        <h2>Get in Touch</h2>
-        <form id="submission-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="service-type">Which service are you interested in?</label>
-                <input type="text" id="service-type" name="service-type" required readonly>
-            </div>
+        <h2>Request a Quote</h2>
+        <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_next" value="thank-you.html">
 
-            <div class="form-group">
-                <label for="has-documents">Do you have construction documents or are you working with an architect?</label>
-                <input type="radio" id="yes" name="documents" value="Yes">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="documents" value="No">
-                <label for="no">No</label>
-            </div>
+            <label for="service-type">Service Type</label>
+            <input type="text" id="service-type" name="service-type" readonly>
 
-            <div id="file-upload" class="form-group hidden">
-                <label for="file">Upload Construction Documents or Floorplan</label>
-                <input type="file" id="file" name="file">
-            </div>
-
-            <div id="consultation" class="form-group">
+            <!-- Residential Service Inputs -->
+            <div id="consultation" class="hidden">
                 <label for="consultation-checkbox">Would you like a consultation?</label>
                 <input type="checkbox" id="consultation-checkbox" name="consultation">
+                <div id="consultation-details" class="hidden">
+                    <label for="consultation-details">Consultation Details</label>
+                    <textarea name="consultation-details" id="consultation-details" rows="4"></textarea>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="upload-image">Upload a photo of the area needing renovation (optional)</label>
-                <input type="file" id="upload-image" name="upload-image">
-            </div>
-
-            <!-- Estimated cost section -->
-            <div id="cost-section" class="form-group hidden">
-                <label for="estimated-cost">Estimated Cost:</label>
+            <!-- Estimated Cost -->
+            <div id="cost-section" class="hidden">
+                <label for="estimated-cost">Estimated Cost</label>
                 <input type="text" id="estimated-cost" name="estimated-cost" readonly>
             </div>
 
-            <!-- Submit button -->
-            <div class="form-group">
-                <input type="submit" id="submit-btn" value="Submit">
+            <!-- Image Upload Section -->
+            <div id="image-upload" class="hidden">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" accept="image/*">
             </div>
+
+            <!-- File Upload for Construction Documents -->
+            <label>Do you have construction documents or a floor plan?</label>
+            <input type="radio" name="documents" value="Yes"> Yes
+            <input type="radio" name="documents" value="No" checked> No
+            <div id="file-upload" class="hidden">
+                <label for="construction-docs">Upload Construction Docs</label>
+                <input type="file" name="construction-docs" accept=".pdf,.doc,.docx">
+            </div>
+
+            <!-- Personal Details -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Submit</button>
         </form>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 Cielo Alto Construction Inc. | <a href="mailto:info@cieloaltoconstruction.com">info@cieloaltoconstruction.com</a></p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
-
 
