@@ -3,98 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cielo Alto Construction Inc.</title>
+    <title>Cielo Alto Construction Inc. | Building Excellence</title>
+    <meta name="description" content="Cielo Alto Construction Inc. - Your premier partner for innovative residential and commercial construction projects.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <!-- Header with Contact Us Button -->
     <header>
-        <h1>Cielo Alto Construction Inc.</h1>
-        <button id="contact-btn">Contact Us</button>
+        <nav id="main-nav">
+            <div class="logo">
+                <img src="logo.svg" alt="Cielo Alto Construction Inc. Logo">
+            </div>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Service Options (Residential / Commercial) -->
-    <section id="service-options">
-        <div id="residential-btn" class="service-category">Residential Services</div>
-        <div id="commercial-btn" class="service-category">Commercial Services</div>
-    </section>
+    <main>
+        <section id="home" class="hero parallax-bg">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="Cielo Alto Construction Inc.">Cielo Alto Construction Inc.</h1>
+                <p class="typewriter">Building Dreams, Crafting Excellence</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+            </div>
+        </section>
 
-    <!-- Residential Service Options -->
-    <section id="residential-options" class="service-options hidden">
-        <button class="service-option" data-service="Bathroom Renovation">Bathroom Renovation</button>
-        <button class="service-option" data-service="Kitchen Renovation">Kitchen Renovation</button>
-        <button class="service-option" data-service="Full Renovation">Full Renovation</button>
-        <button class="service-option" data-service="Flooring">Flooring</button>
-        <button class="service-option" data-service="Roofing">Roofing</button>
-        <button class="service-option" data-service="Fencing">Fencing</button>
-        <button class="service-option" data-service="Gutters">Gutters</button>
-        <button class="service-option" data-service="Concrete">Concrete</button>
-    </section>
-
-    <!-- Commercial Service Options -->
-    <section id="commercial-options" class="service-options hidden">
-        <button class="service-option" data-service="Salon">Salon</button>
-        <button class="service-option" data-service="Restaurant">Restaurant</button>
-        <button class="service-option" data-service="Bar">Bar</button>
-        <button class="service-option" data-service="Clinic">Clinic</button>
-        <button class="service-option" data-service="Office Space">Office Space</button>
-    </section>
-
-    <!-- Contact Form -->
-    <section id="contact-form" class="hidden">
-        <h2>Request a Quote</h2>
-        <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_next" value="thank-you.html">
-
-            <label for="service-type">Service Type</label>
-            <input type="text" id="service-type" name="service-type" readonly>
-
-            <!-- Residential Service Inputs -->
-            <div id="consultation" class="hidden">
-                <label for="consultation-checkbox">Would you like a consultation?</label>
-                <input type="checkbox" id="consultation-checkbox" name="consultation">
-                <div id="consultation-details" class="hidden">
-                    <label for="consultation-details">Consultation Details</label>
-                    <textarea name="consultation-details" id="consultation-details" rows="4"></textarea>
+        <section id="services">
+            <h2 data-aos="fade-up">Our Services</h2>
+            <div class="service-container">
+                <div class="service-category residential" data-aos="fade-right">
+                    <h3>Residential</h3>
+                    <div class="service-grid">
+                        <div class="service-item" data-service="bathroom">
+                            <i class="fas fa-bath"></i>
+                            <h4>Bathroom Remodeling</h4>
+                            <p>Transform your bathroom into a luxurious spa-like retreat.</p>
+                        </div>
+                        <div class="service-item" data-service="kitchen">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Kitchen Renovations</h4>
+                            <p>Create the kitchen of your dreams with our expert designs.</p>
+                        </div>
+                        <div class="service-item" data-service="flooring">
+                            <i class="fas fa-border-all"></i>
+                            <h4>Flooring Installation</h4>
+                            <p>High-quality flooring solutions for every room in your home.</p>
+                        </div>
+                        <div class="service-item" data-service="renovation">
+                            <i class="fas fa-home"></i>
+                            <h4>Full Home Renovation</h4>
+                            <p>Comprehensive home makeovers to suit your lifestyle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-category commercial" data-aos="fade-left">
+                    <h3>Commercial</h3>
+                    <div class="service-grid">
+                        <div class="service-item" data-service="salon">
+                            <i class="fas fa-cut"></i>
+                            <h4>Salon Design & Build</h4>
+                            <p>Stylish and functional spaces for beauty professionals.</p>
+                        </div>
+                        <div class="service-item" data-service="restaurant">
+                            <i class="fas fa-hamburger"></i>
+                            <h4>Restaurant Construction</h4>
+                            <p>Bringing your culinary vision to life with expert construction.</p>
+                        </div>
+                        <div class="service-item" data-service="bar">
+                            <i class="fas fa-glass-martini-alt"></i>
+                            <h4>Bar Renovations</h4>
+                            <p>Create the perfect ambiance for your patrons.</p>
+                        </div>
+                        <div class="service-item" data-service="clinic">
+                            <i class="fas fa-clinic-medical"></i>
+                            <h4>Clinic Buildouts</h4>
+                            <p>Efficient and comfortable medical spaces designed to heal.</p>
+                        </div>
+                        <div class="service-item" data-service="office">
+                            <i class="fas fa-building"></i>
+                            <h4>Office Space Remodeling</h4>
+                            <p>Modern workspaces that inspire productivity and collaboration.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Estimated Cost -->
-            <div id="cost-section" class="hidden">
-                <label for="estimated-cost">Estimated Cost</label>
-                <input type="text" id="estimated-cost" name="estimated-cost" readonly>
+        <section id="project-form" class="hidden">
+            <h2 data-aos="fade-up">Project Details</h2>
+            <form id="construction-form" data-aos="fade-up">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service-type">Service Type</label>
+                    <input type="text" id="service-type" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="document-status">Do you have construction documents?</label>
+                    <select id="document-status" required>
+                        <option value="">Please select</option>
+                        <option value="yes">Yes, I have documents</option>
+                        <option value="no">No, I need a consultation</option>
+                    </select>
+                </div>
+                <div id="document-upload" class="form-group hidden">
+                    <label for="construction-docs">Upload Construction Documents</label>
+                    <input type="file" id="construction-docs" accept=".pdf,.dwg,.dxf">
+                </div>
+                <div id="consultation-request" class="form-group hidden">
+                    <button type="button" id="request-consultation">Request Consultation</button>
+                </div>
+                <div class="form-group">
+                    <label for="square-footage">Square Footage</label>
+                    <input type="number" id="square-footage" required>
+                </div>
+                <div class="form-group">
+                    <label for="area-photos">Upload Area Photos</label>
+                    <input type="file" id="area-photos" accept="image/*" multiple>
+                </div>
+                <button type="submit">Submit Project Request</button>
+            </form>
+            <div id="cost-estimate" class="hidden"></div>
+        </section>
+
+        <section id="portfolio">
+            <h2 data-aos="fade-up">Our Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Portfolio items will be dynamically added here -->
             </div>
+        </section>
 
-            <!-- Image Upload Section -->
-            <div id="image-upload" class="hidden">
-                <label for="image">Upload Image</label>
-                <input type="file" id="image" name="image" accept="image/*">
+        <section id="about" class="parallax-bg">
+            <div class="about-content" data-aos="fade-up">
+                <h2>About Cielo Alto Construction Inc.</h2>
+                <p>With over two decades of experience, Cielo Alto Construction Inc. has been at the forefront of innovative construction solutions. Our team of skilled professionals is dedicated to delivering exceptional quality and customer satisfaction in every project we undertake.</p>
+                <p>From residential remodels to large-scale commercial constructions, we bring creativity, expertise, and attention to detail to every job. Our commitment to using sustainable materials and cutting-edge techniques ensures that we not only meet but exceed our clients' expectations.</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
             </div>
+        </section>
 
-            <!-- File Upload for Construction Documents -->
-            <label>Do you have construction documents or a floor plan?</label>
-            <input type="radio" name="documents" value="Yes"> Yes
-            <input type="radio" name="documents" value="No" checked> No
-            <div id="file-upload" class="hidden">
-                <label for="construction-docs">Upload Construction Docs</label>
-                <input type="file" name="construction-docs" accept=".pdf,.doc,.docx">
+        <section id="contact">
+            <h2 data-aos="fade-up">Contact Us</h2>
+            <div class="contact-container" data-aos="fade-up">
+                <div class="contact-info">
+                    <h3>Reach Out to Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Construction Ave, Buildtown, CA 90210</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@cieloaltoconstruction.com</p>
+                </div>
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
+            <div id="map"></div>
+        </section>
+    </main>
 
-            <!-- Personal Details -->
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
+    <footer>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 Cielo Alto Construction Inc. All rights reserved.</p>
+        </div>
+    </footer>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />
     <script src="script.js"></script>
 </body>
 </html>
-
