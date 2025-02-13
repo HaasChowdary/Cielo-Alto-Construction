@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -8,26 +8,34 @@ body {
     color: #333;
 }
 
-header {
+/* Sticky Navigation Bar */
+header.sticky {
+    position: sticky;
+    top: 0;
     background: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    margin: 0;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li a {
@@ -36,11 +44,24 @@ nav ul li a {
     font-weight: bold;
 }
 
+.cta-button {
+    background: linear-gradient(45deg, #ff6f61, #ff4a3d);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(45deg, #ff4a3d, #ff6f61);
+}
+
 /* Hero Section */
 .hero {
     background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
     color: #fff;
-    height: 400px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +70,7 @@ nav ul li a {
 
 .hero-content {
     background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
 }
 
@@ -63,25 +84,12 @@ nav ul li a {
     margin: 10px 0 20px;
 }
 
-.cta-button {
-    background: #ff6f61;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-}
-
-.cta-button:hover {
-    background: #ff4a3d;
-}
-
 /* Cards for Services */
 .options {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    justify-content: center;
+    padding: 20px;
 }
 
 .card {
@@ -90,12 +98,12 @@ nav ul li a {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 200px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card i {
@@ -116,7 +124,7 @@ nav ul li a {
     text-align: center;
 }
 
-.testimonial-container {
+.testimonial-carousel {
     display: flex;
     justify-content: center;
     gap: 20px;
