@@ -1,102 +1,48 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('#main-nav ul');
-    const form = document.getElementById('contact-form');
-    const serviceTypeSelect = form.querySelector('select[name="service-type"]');
-    const specificServiceInput = form.querySelector('input[name="specific-service"]');
-    const documentUploadSection = document.getElementById('document-upload');
-    const uploadSection = document.getElementById('upload-section');
-    const consultationSection = document.getElementById('consultation-section');
-    const photoUploadSection = document.getElementById('photo-upload-section');
+document.addEventListener("DOMContentLoaded", function () {
+    const serviceButtons = document.querySelectorAll(".service-option");
+    const formSection = document.getElementById("form-section");
+    const estimateField = document.getElementById("estimated-cost");
+    const mapContainer = document.getElementById("map");
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('show');
-    });
+    // Cost Estimation Logic
+    const serviceCosts = {
+        "Bathroom": 5000,
+        "Kitchen": 10000,
+        "Flooring": 3000,
+        "Full Renovation": 20000,
+        "Salon": 8000,
+        "Restaurant": 15000,
+        "Bar": 12000,
+        "Clinic": 18000,
+        "Office Space": 10000,
+        "Roofing": 7000,
+        "Fencing": 4000,
+        "Gutters": 2000,
+        "Concrete": 5000
+    };
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            navMenu.classList.remove('show');
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    serviceButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            formSection.classList.add("visible");
+            const selectedService = this.innerText.trim();
+            estimateField.value = `$${serviceCosts[selectedService] || "N/A"}`;
+            formSection.scrollIntoView({ behavior: "smooth" });
         });
     });
 
-    // Service buttons functionality
-    document.querySelectorAll('.service-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const service = this.dataset.service;
-            const category = this.closest('.service-category').id;
-            serviceTypeSelect.value = category;
-            specificServiceInput.value = service;
-            form.scrollIntoView({ behavior: 'smooth' });
-            updateFormSections();
-        });
+    // Mapbox Integration
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.5795, 39.8283], // Default to USA center
+        zoom: 3
     });
 
-    // Show/hide relevant form sections based on user selections
-    serviceTypeSelect.addEventListener('change', updateFormSections);
-    form.querySelectorAll('input[name="has-documents"]').forEach(radio => {
-        radio.addEventListener('change', updateFormSections);
+    const marker = new mapboxgl.Marker({ draggable: true }).setLngLat([-98.5795, 39.8283]).addTo(map);
+
+    marker.on('dragend', function () {
+        const lngLat = marker.getLngLat();
+        document.getElementById("location-coordinates").value = `Lat: ${lngLat.lat}, Lng: ${lngLat.lng}`;
     });
-
-    function updateFormSections() {
-        const serviceType = serviceTypeSelect.value;
-        const hasDocuments = form.querySelector('input[name="has-documents"]:checked')?.value;
-
-        documentUploadSection.style.display = 'block';
-        
-        if (hasDocuments === 'yes') {
-            uploadSection.style.display = 'block';
-            consultationSection.style.display = 'none';
-        } else if (hasDocuments === 'no') {
-            uploadSection.style.display = 'none';
-            consultationSection.style.display = 'block';
-        } else {
-            uploadSection.style.display = 'none';
-            consultationSection.style.display = 'none';
-        }
-
-        photoUploadSection.style.display = serviceType === 'residential' ? 'block' : 'none';
-    }
-
-    // Handle form submission
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (validateForm()) {
-            console.log('Form submitted successfully');
-            // You can add AJAX submission here or other processing logic
-            // For now, we'll just reset the form
-            form.reset();
-            updateFormSections();
-            alert('Thank you for your submission. We will contact you soon!');
-        }
-    });
-
-    function validateForm() {
-        let isValid = true;
-        const requiredFields = form.querySelectorAll('[required]');
-        
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-            } else {
-                field.classList.remove('error');
-            }
-        });
-
-        if (!isValid) {
-            alert('Please fill in all required fields.');
-        }
-
-        return isValid;
-    }
-
-    // Initialize form sections
-    updateFormSections();
 });
