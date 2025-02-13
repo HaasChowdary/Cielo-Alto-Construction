@@ -34,128 +34,138 @@
     </section>
 
     <!-- Residential Section -->
-    <section id="residential">
-        <h2>Residential Services</h2>
-        <p>Choose the type of residential service you need:</p>
-        <div class="options">
-            <div class="card" data-service="bathroom">
-                <i class="fas fa-bath"></i>
-                <h3>Bathroom</h3>
-            </div>
-            <div class="card" data-service="kitchen">
-                <i class="fas fa-utensils"></i>
-                <h3>Kitchen</h3>
-            </div>
-            <div class="card" data-service="flooring">
-                <i class="fas fa-home"></i>
-                <h3>Flooring</h3>
-            </div>
-            <div class="card" data-service="renovation">
-                <i class="fas fa-tools"></i>
-                <h3>Flipping / Full Renovation</h3>
+    <section id="residential" class="section">
+        <div class="container">
+            <h2>Residential Services</h2>
+            <p>Choose the type of residential service you need:</p>
+            <div class="options">
+                <div class="card" data-service="bathroom">
+                    <i class="fas fa-bath"></i>
+                    <h3>Bathroom</h3>
+                </div>
+                <div class="card" data-service="kitchen">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Kitchen</h3>
+                </div>
+                <div class="card" data-service="flooring">
+                    <i class="fas fa-home"></i>
+                    <h3>Flooring</h3>
+                </div>
+                <div class="card" data-service="renovation">
+                    <i class="fas fa-tools"></i>
+                    <h3>Flipping / Full Renovation</h3>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Commercial Section -->
-    <section id="commercial">
-        <h2>Commercial Services</h2>
-        <p>Choose the type of commercial service you need:</p>
-        <div class="options">
-            <div class="card" data-service="salon">
-                <i class="fas fa-cut"></i>
-                <h3>Salon</h3>
-            </div>
-            <div class="card" data-service="restaurant">
-                <i class="fas fa-utensils"></i>
-                <h3>Restaurant</h3>
-            </div>
-            <div class="card" data-service="bar">
-                <i class="fas fa-glass-cheers"></i>
-                <h3>Bar</h3>
-            </div>
-            <div class="card" data-service="clinic">
-                <i class="fas fa-clinic-medical"></i>
-                <h3>Clinic</h3>
-            </div>
-            <div class="card" data-service="office">
-                <i class="fas fa-building"></i>
-                <h3>Office Space</h3>
+    <section id="commercial" class="section">
+        <div class="container">
+            <h2>Commercial Services</h2>
+            <p>Choose the type of commercial service you need:</p>
+            <div class="options">
+                <div class="card" data-service="salon">
+                    <i class="fas fa-cut"></i>
+                    <h3>Salon</h3>
+                </div>
+                <div class="card" data-service="restaurant">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Restaurant</h3>
+                </div>
+                <div class="card" data-service="bar">
+                    <i class="fas fa-glass-cheers"></i>
+                    <h3>Bar</h3>
+                </div>
+                <div class="card" data-service="clinic">
+                    <i class="fas fa-clinic-medical"></i>
+                    <h3>Clinic</h3>
+                </div>
+                <div class="card" data-service="office">
+                    <i class="fas fa-building"></i>
+                    <h3>Office Space</h3>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-carousel">
-            <div class="testimonial">
-                <p>"Cielo Alto Construction transformed our home! Their attention to detail is unmatched."</p>
-                <span>- Jane Doe</span>
-            </div>
-            <div class="testimonial">
-                <p>"Professional, timely, and high-quality work. Highly recommend!"</p>
-                <span>- John Smith</span>
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">
+                    <p>"Cielo Alto Construction transformed our home! Their attention to detail is unmatched."</p>
+                    <span>- Jane Doe</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Professional, timely, and high-quality work. Highly recommend!"</p>
+                    <span>- John Smith</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Form Section -->
-    <section id="form-section">
-        <h2>Project Details</h2>
-        <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="New Project Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="service_type" id="service_type">
+    <section id="form-section" class="section">
+        <div class="container">
+            <h2>Project Details</h2>
+            <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="New Project Inquiry">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="service_type" id="service_type">
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
 
-            <label for="documents">Do you have construction documents or are you working with an architect?</label>
-            <select id="documents" name="documents" required>
-                <option value="yes">Yes, I have documents</option>
-                <option value="no">No, I need a consultation</option>
-            </select>
+                <label for="documents">Do you have construction documents or are you working with an architect?</label>
+                <select id="documents" name="documents" required>
+                    <option value="yes">Yes, I have documents</option>
+                    <option value="no">No, I need a consultation</option>
+                </select>
 
-            <div id="upload-section">
-                <label for="file">Upload Construction Documents or Floorplan:</label>
-                <input type="file" id="file" name="file">
-            </div>
+                <div id="upload-section">
+                    <label for="file">Upload Construction Documents or Floorplan:</label>
+                    <input type="file" id="file" name="file">
+                </div>
 
-            <div id="photo-section">
-                <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
-                <input type="file" id="photo" name="photo" accept="image/*">
-            </div>
+                <div id="photo-section">
+                    <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </div>
 
-            <label for="message">Additional Details:</label>
-            <textarea id="message" name="message" rows="5"></textarea>
+                <label for="message">Additional Details:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
 
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: info@cieloalto.com</p>
-                <p>Phone: (123) 456-7890</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@cieloalto.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+            <p>&copy; 2023 Cielo Alto Construction Inc. All rights reserved.</p>
         </div>
-        <p>&copy; 2025 Cielo Alto Construction Inc. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
