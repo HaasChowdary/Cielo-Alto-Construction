@@ -14,7 +14,6 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -34,69 +33,78 @@
             <div class="hero-content">
                 <h1>Building Dreams, Crafting Reality</h1>
                 <p>Quality construction services for residential and commercial projects</p>
-                <a href="#contact" class="cta-button">Get a Quote</a>
+                <a href="#services" class="cta-button">Explore Our Services</a>
             </div>
         </section>
 
         <section id="services" class="services">
             <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Residential</h3>
-                    <p>Custom home building and renovations</p>
+            <div class="service-categories">
+                <div class="service-category" id="residential">
+                    <h3>Residential Services</h3>
+                    <button class="service-btn" data-service="Bathroom">Bathroom</button>
+                    <button class="service-btn" data-service="Kitchen">Kitchen</button>
+                    <button class="service-btn" data-service="Flooring">Flooring</button>
+                    <button class="service-btn" data-service="Full Renovation">Full Renovation</button>
+                    <button class="service-btn" data-service="Roofing">Roofing</button>
+                    <button class="service-btn" data-service="Fencing">Fencing</button>
+                    <button class="service-btn" data-service="Gutters">Gutters</button>
+                    <button class="service-btn" data-service="Concrete">Concrete</button>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Commercial</h3>
-                    <p>Office spaces, retail, and industrial construction</p>
+                <div class="service-category" id="commercial">
+                    <h3>Commercial Services</h3>
+                    <button class="service-btn" data-service="Salon">Salon</button>
+                    <button class="service-btn" data-service="Restaurant">Restaurant</button>
+                    <button class="service-btn" data-service="Bar">Bar</button>
+                    <button class="service-btn" data-service="Clinic">Clinic</button>
+                    <button class="service-btn" data-service="Office Space">Office Space</button>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-paint-roller"></i>
-                    <h3>Remodeling</h3>
-                    <p>Kitchen, bathroom, and whole-house remodels</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-hammer"></i>
-                    <h3>Repairs</h3>
-                    <p>Structural repairs and maintenance services</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-gallery">
-                <!-- Replace with your own project images and descriptions -->
-                <div class="project-card">
-                    <img src="path-to-project-image-1.jpg" alt="Project 1">
-                    <div class="project-info">
-                        <h3>Modern Home Renovation</h3>
-                        <p>Complete renovation of a 3000 sq ft residential property</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="path-to-project-image-2.jpg" alt="Project 2">
-                    <div class="project-info">
-                        <h3>Commercial Office Complex</h3>
-                        <p>Construction of a 5-story office building in downtown area</p>
-                    </div>
-                </div>
-                <!-- Add more project cards as needed -->
             </div>
         </section>
 
         <section id="about" class="about">
             <h2>About Us</h2>
-            <p>Cielo Alto Construction Inc. has been delivering exceptional construction services for over 20 years. Our team of experienced professionals is dedicated to bringing your vision to life with quality craftsmanship and attention to detail.</p>
+            <p>Cielo Alto Construction Inc. has been a cornerstone in the construction industry for over two decades. Our team of skilled professionals brings a wealth of experience and expertise to every project, ensuring unparalleled quality and craftsmanship. We pride ourselves on our ability to transform visions into reality, whether it's breathing new life into residential spaces or creating cutting-edge commercial environments.</p>
+            <p>Our commitment to excellence extends beyond just construction. We believe in fostering lasting relationships with our clients, understanding their unique needs, and delivering solutions that exceed expectations. From the initial consultation to the final walkthrough, we maintain open communication and transparency, ensuring a smooth and stress-free experience for our clients.</p>
+            <p>At Cielo Alto Construction Inc., we're not just building structures; we're building trust, quality, and a legacy of satisfied clients. Our dedication to using the latest technologies and sustainable practices sets us apart, allowing us to deliver projects that are not only beautiful and functional but also environmentally responsible.</p>
         </section>
 
         <section id="contact" class="contact">
             <h2>Contact Us</h2>
             <form id="contact-form">
+                <h3>Cielo Alto Construction Inc.</h3>
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                <select name="service-type" required>
+                    <option value="">Select Service Type</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+                <input type="text" name="specific-service" placeholder="Specific Service (e.g., Bathroom, Salon)" required>
+                <div id="document-upload">
+                    <p>Do you have construction documents or are you working with an architect?</p>
+                    <input type="radio" id="yes-docs" name="has-documents" value="yes">
+                    <label for="yes-docs">Yes</label>
+                    <input type="radio" id="no-docs" name="has-documents" value="no">
+                    <label for="no-docs">No</label>
+                </div>
+                <div id="upload-section" style="display:none;">
+                    <label for="file-upload">Upload Construction Documents or Floorplan:</label>
+                    <input type="file" id="file-upload" name="file-upload" accept=".pdf,.doc,.docx,.jpg,.png">
+                </div>
+                <div id="consultation-section" style="display:none;">
+                    <p>Would you like a consultation?</p>
+                    <input type="radio" id="yes-consult" name="needs-consultation" value="yes">
+                    <label for="yes-consult">Yes</label>
+                    <input type="radio" id="no-consult" name="needs-consultation" value="no">
+                    <label for="no-consult">No</label>
+                </div>
+                <div id="photo-upload-section" style="display:none;">
+                    <label for="photo-upload">Upload a photo of the area to be remodeled:</label>
+                    <input type="file" id="photo-upload" name="photo-upload" accept="image/*">
+                </div>
+                <textarea name="message" placeholder="Additional Details" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </section>
@@ -106,11 +114,6 @@
         <p>&copy; 2025 Cielo Alto Construction Inc. All rights reserved.</p>
     </footer>
 
-    <a href="#home" id="back-to-top" title="Back to Top"><i class="fas fa-chevron-up"></i></a>
-
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
