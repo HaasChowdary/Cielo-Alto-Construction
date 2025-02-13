@@ -52,18 +52,22 @@ nav ul li a {
     font-weight: bold;
 }
 
+nav ul li a:hover {
+    color: #007BFF;
+}
+
 .cta-button {
     background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 }
 
 .cta-button:hover {
-    background: linear-gradient(45deg, #0056b3, #007BFF);
+    transform: translateY(-3px);
 }
 
 /* Hero Section */
@@ -115,6 +119,7 @@ nav ul li a {
     border-radius: 5px;
     margin: 0 5px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .progress-step.active {
@@ -127,6 +132,7 @@ nav ul li a {
     padding: 60px 0;
     background: #fff;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    animation: fadeIn 0.5s ease;
 }
 
 .section.hidden {
@@ -202,28 +208,38 @@ nav ul li a {
 
 /* Testimonials Section */
 .testimonial-carousel {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .testimonial {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    text-align: center;
 }
 
-.testimonial p {
-    font-style: italic;
-}
-
-.testimonial span {
+.testimonial.active {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
 }
 
 /* Form Section */
@@ -260,6 +276,12 @@ form button {
 
 form button:hover {
     background: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
 /* CTA Banner */
@@ -376,4 +398,10 @@ footer {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
