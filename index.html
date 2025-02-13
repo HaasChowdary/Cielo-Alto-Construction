@@ -5,71 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction Inc.</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="logo">Cielo Alto Construction Inc.</div>
+        <h1>Cielo Alto Construction Inc.</h1>
         <nav>
-            <button id="contact-btn">Contact Us</button>
+            <ul>
+                <li><a href="#residential">Residential</a></li>
+                <li><a href="#commercial">Commercial</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="services">
-        <div class="service-category">
-            <h2>Residential Services</h2>
-            <button class="service-option" data-type="residential" data-service="bathroom">Bathroom</button>
-            <button class="service-option" data-type="residential" data-service="kitchen">Kitchen</button>
-            <button class="service-option" data-type="residential" data-service="flooring">Flooring</button>
-            <button class="service-option" data-type="residential" data-service="full-renovation">Flipping/Full Renovation</button>
-            <button class="service-option" data-type="residential" data-service="roofing">Roofing</button>
-            <button class="service-option" data-type="residential" data-service="fencing">Fencing</button>
-            <button class="service-option" data-type="residential" data-service="gutters">Gutters</button>
-            <button class="service-option" data-type="residential" data-service="concrete">Concrete</button>
-        </div>
-
-        <div class="service-category">
-            <h2>Commercial Services</h2>
-            <button class="service-option" data-type="commercial" data-service="salon">Salon</button>
-            <button class="service-option" data-type="commercial" data-service="restaurant">Restaurant</button>
-            <button class="service-option" data-type="commercial" data-service="bar">Bar</button>
-            <button class="service-option" data-type="commercial" data-service="clinic">Clinic</button>
-            <button class="service-option" data-type="commercial" data-service="office-space">Office Space</button>
+    <!-- Residential Section -->
+    <section id="residential">
+        <h2>Residential Services</h2>
+        <p>Choose the type of residential service you need:</p>
+        <div class="options">
+            <button data-service="bathroom">Bathroom</button>
+            <button data-service="kitchen">Kitchen</button>
+            <button data-service="flooring">Flooring</button>
+            <button data-service="renovation">Flipping / Full Renovation</button>
         </div>
     </section>
 
-    <section id="form-section" class="hidden">
-        <h2>Get a Quote</h2>
-        <form id="quote-form">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" required>
+    <!-- Commercial Section -->
+    <section id="commercial">
+        <h2>Commercial Services</h2>
+        <p>Choose the type of commercial service you need:</p>
+        <div class="options">
+            <button data-service="salon">Salon</button>
+            <button data-service="restaurant">Restaurant</button>
+            <button data-service="bar">Bar</button>
+            <button data-service="clinic">Clinic</button>
+            <button data-service="office">Office Space</button>
+        </div>
+    </section>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" required>
+    <!-- Form Section -->
+    <section id="form-section" style="display: none;">
+        <h2>Project Details</h2>
+        <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New Project Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="service_type" id="service_type">
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" required>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-            <label for="service">Selected Service</label>
-            <input type="text" id="service" readonly>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-            <label for="construction-docs">Do you have construction documents?</label>
-            <input type="file" id="construction-docs">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
 
-            <label for="need-consultation">Would you like a consultation?</label>
-            <input type="checkbox" id="need-consultation">
+            <label for="documents">Do you have construction documents or are you working with an architect?</label>
+            <select id="documents" name="documents" required>
+                <option value="yes">Yes, I have documents</option>
+                <option value="no">No, I need a consultation</option>
+            </select>
 
-            <label for="image">Upload an image of your issue</label>
-            <input type="file" id="image">
+            <div id="upload-section">
+                <label for="file">Upload Construction Documents or Floorplan:</label>
+                <input type="file" id="file" name="file">
+            </div>
 
-            <label for="estimated-cost">Estimated Cost</label>
-            <input type="text" id="estimated-cost" readonly>
+            <div id="photo-section">
+                <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
 
-            <label for="map">Mark Your Location</label>
-            <div id="map"></div>
+            <label for="message">Additional Details:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
 
             <button type="submit">Submit</button>
         </form>
     </section>
+
+    <footer>
+        <p>&copy; 2023 Cielo Alto Construction Inc. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
