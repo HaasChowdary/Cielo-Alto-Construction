@@ -1,6 +1,7 @@
 :root {
     --primary-color: #003366;
     --secondary-color: #ff6600;
+    --accent-color: #0066cc;
     --text-color: #333;
     --background-color: #f4f4f4;
     --white: #ffffff;
@@ -130,82 +131,48 @@ header {
     background-color: var(--white);
 }
 
-.services h2, .projects h2, .about h2, .contact h2 {
+.services h2, .about h2, .contact h2 {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+.service-categories {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.service-card {
+.service-category {
+    flex: 1;
     background-color: var(--background-color);
-    padding: 2rem;
+    padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-card i {
-    font-size: 3rem;
-    color: var(--secondary-color);
+.service-category h3 {
     margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
-/* Projects Section */
-.projects {
-    padding: 4rem 0;
-}
-
-.project-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.project-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.project-card img {
+.service-btn {
+    display: block;
     width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover img {
-    transform: scale(1.1);
-}
-
-.project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--accent-color);
     color: var(--white);
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.project-card:hover .project-info {
-    transform: translateY(0);
+.service-btn:hover {
+    background-color: #005cb3;
 }
 
 /* About Section */
@@ -216,8 +183,8 @@ header {
 
 .about p {
     max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    margin: 0 auto 1rem;
+    text-align: justify;
     padding: 0 20px;
 }
 
@@ -229,22 +196,44 @@ header {
 #contact-form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 #contact-form input,
+#contact-form select,
 #contact-form textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 10px;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+#contact-form div {
+    margin-bottom: 1rem;
+}
+
+#contact-form input[type="radio"] {
+    margin-right: 5px;
+    width: auto;
+}
+
+#contact-form input[type="file"] {
+    margin-top: 5px;
+}
+
 #contact-form button {
     background-color: var(--secondary-color);
     color: var(--white);
-    padding: 0.8rem 1.5rem;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -261,26 +250,6 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 1rem 0;
-}
-
-/* Back to Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--secondary-color);
-    color: var(--white);
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    display: none;
-    transition: background-color 0.3s ease;
-}
-
-#back-to-top:hover {
-    background-color: #e65c00;
 }
 
 /* Responsive Design */
@@ -316,5 +285,8 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
-}
 
+    .service-categories {
+        flex-direction: column;
+    }
+}
