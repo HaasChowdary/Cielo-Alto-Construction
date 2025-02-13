@@ -1,46 +1,33 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script Loaded!"); // Debugging
+// Show form when a service is selected
+document.querySelectorAll('.options button').forEach(button => {
+    button.addEventListener('click', () => {
+        const serviceType = button.getAttribute('data-service');
+        document.getElementById('service_type').value = serviceType;
+        document.getElementById('form-section').style.display = 'block';
 
-    const contactBtn = document.getElementById("contact-btn");
-    const formSection = document.getElementById("form-section");
-    const serviceOptions = document.querySelectorAll(".service-option");
-    const serviceInput = document.getElementById("service");
-    const estimatedCostInput = document.getElementById("estimated-cost");
-    const form = document.getElementById("quote-form");
+        // Scroll to the form
+        document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
 
-    // Display form when clicking "Contact Us"
-    contactBtn.addEventListener("click", () => {
-        console.log("Contact Us clicked");
-        formSection.classList.remove("hidden");
-        formSection.scrollIntoView({ behavior: "smooth" });
+        // Show/hide upload sections based on service type
+        const uploadSection = document.getElementById('upload-section');
+        const photoSection = document.getElementById('photo-section');
+
+        if (serviceType === 'salon' || serviceType === 'restaurant' || serviceType === 'bar' || serviceType === 'clinic' || serviceType === 'office') {
+            uploadSection.style.display = 'block';
+            photoSection.style.display = 'none';
+        } else {
+            uploadSection.style.display = 'none';
+            photoSection.style.display = 'block';
+        }
     });
+});
 
-    // Service selection
-    serviceOptions.forEach(button => {
-        button.addEventListener("click", () => {
-            console.log(`Service Selected: ${button.innerText}`);
-            serviceInput.value = button.innerText;
-            formSection.classList.remove("hidden");
-            formSection.scrollIntoView({ behavior: "smooth" });
-            estimatedCostInput.value = estimateCost(button.innerText);
-        });
-    });
-
-    // Cost estimation
-    function estimateCost(service) {
-        const costs = {
-            "Bathroom": 5000, "Kitchen": 10000, "Flooring": 4000,
-            "Flipping/Full Renovation": 20000, "Roofing": 8000, "Fencing": 3000,
-            "Gutters": 2000, "Concrete": 6000, "Salon": 12000, "Restaurant": 25000,
-            "Bar": 15000, "Clinic": 20000, "Office Space": 18000
-        };
-        return costs[service] ? `$${costs[service]}` : "Price Varies";
+// Toggle upload section based on document selection
+document.getElementById('documents').addEventListener('change', function () {
+    const uploadSection = document.getElementById('upload-section');
+    if (this.value === 'yes') {
+        uploadSection.style.display = 'block';
+    } else {
+        uploadSection.style.display = 'none';
     }
-
-    // Form submission
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("Form submitted!");
-        alert("Form submitted successfully!");
-    });
 });
