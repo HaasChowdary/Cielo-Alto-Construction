@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Sticky Navigation Bar -->
     <header class="sticky">
         <nav>
@@ -31,8 +36,15 @@
         </div>
     </section>
 
+    <!-- Progress Bar -->
+    <div id="progress-bar">
+        <div class="progress-step" data-step="1">Project Type</div>
+        <div class="progress-step" data-step="2">Services</div>
+        <div class="progress-step" data-step="3">Form</div>
+    </div>
+
     <!-- Project Type Selection (Residential/Commercial) -->
-    <section id="project-type" class="section" style="display: none;">
+    <section id="project-type" class="section hidden">
         <div class="container">
             <h2>Choose Your Project Type</h2>
             <div class="options">
@@ -51,8 +63,9 @@
     </section>
 
     <!-- Residential Services -->
-    <section id="residential-services" class="section" style="display: none;">
+    <section id="residential-services" class="section hidden">
         <div class="container">
+            <button id="back-button" class="back-button">← Back</button>
             <h2>Residential Services</h2>
             <p>Choose the type of residential service you need:</p>
             <div class="options">
@@ -77,8 +90,9 @@
     </section>
 
     <!-- Commercial Services -->
-    <section id="commercial-services" class="section" style="display: none;">
+    <section id="commercial-services" class="section hidden">
         <div class="container">
+            <button id="back-button" class="back-button">← Back</button>
             <h2>Commercial Services</h2>
             <p>Choose the type of commercial service you need:</p>
             <div class="options">
@@ -124,7 +138,7 @@
     </section>
 
     <!-- Form Section -->
-    <section id="form-section" class="section" style="display: none;">
+    <section id="form-section" class="section hidden">
         <div class="container">
             <h2>Project Details</h2>
             <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
@@ -162,6 +176,42 @@
 
                 <button type="submit">Submit</button>
             </form>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section id="cta-banner">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today for a free consultation!</p>
+            <button id="cta-button" class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How long does a typical project take?</h3>
+                <p>Most projects take between 4-8 weeks, depending on the scope and complexity.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you provide free consultations?</h3>
+                <p>Yes, we offer free consultations to discuss your project needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section id="social-proof" class="section">
+        <div class="container">
+            <h2>Trusted By</h2>
+            <div class="logos">
+                <img src="logo1.png" alt="Logo 1">
+                <img src="logo2.png" alt="Logo 2">
+                <img src="logo3.png" alt="Logo 3">
+            </div>
         </div>
     </section>
 
