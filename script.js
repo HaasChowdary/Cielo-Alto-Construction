@@ -1,10 +1,20 @@
-// Smooth Scroll for Navigation Links
+// Show services section when clicked on navigation links
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
         });
+
+        // Show the target section
+        targetSection.style.display = 'block';
+
+        // Scroll to the target section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -13,7 +23,6 @@ document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
         const serviceType = card.getAttribute('data-service');
         document.getElementById('service_type').value = serviceType;
-        document.getElementById('form-section').style.display = 'block';
 
         // Scroll to the form
         document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
