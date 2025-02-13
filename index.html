@@ -5,49 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction Inc.</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Cielo Alto Construction Inc. - Quality residential and commercial construction services">
-    <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#FFF" media="(prefers-color-scheme: light)">
 </head>
 <body>
     <header>
         <h1 class="logo">Cielo Alto Construction Inc.</h1>
-        <nav>
-            <button id="contact-button">Contact Us</button>
-        </nav>
     </header>
 
     <main>
         <section class="services">
             <div class="service-category">
                 <h2>Residential Services</h2>
-                <ul>
-                    <li><button class="service-option">Bathroom Renovation</button></li>
-                    <li><button class="service-option">Kitchen Remodeling</button></li>
-                    <li><button class="service-option">Flooring Installation</button></li>
-                    <li><button class="service-option">Full Renovation</button></li>
-                    <li><button class="service-option">Roofing</button></li>
-                    <li><button class="service-option">Fencing</button></li>
-                    <li><button class="service-option">Gutters</button></li>
-                    <li><button class="service-option">Concrete Work</button></li>
-                </ul>
+                <p>Transform your home with our expert residential services.</p>
+                <button class="show-services-btn">View Services</button>
+                <select class="service-dropdown" style="display: none;">
+                    <option value="">Select a service</option>
+                    <option value="Bathroom Renovation">Bathroom Renovation</option>
+                    <option value="Kitchen Remodeling">Kitchen Remodeling</option>
+                    <option value="Flooring Installation">Flooring Installation</option>
+                    <option value="Full Renovation">Full Renovation</option>
+                    <option value="Roofing">Roofing</option>
+                    <option value="Fencing">Fencing</option>
+                    <option value="Gutters">Gutters</option>
+                    <option value="Concrete Work">Concrete Work</option>
+                </select>
             </div>
 
             <div class="service-category">
                 <h2>Commercial Services</h2>
-                <ul>
-                    <li><button class="service-option">Salon Construction</button></li>
-                    <li><button class="service-option">Restaurant Build</button></li>
-                    <li><button class="service-option">Bar Setup</button></li>
-                    <li><button class="service-option">Clinic Construction</button></li>
-                    <li><button class="service-option">Office Space Renovation</button></li>
-                </ul>
+                <p>Elevate your business space with our professional commercial services.</p>
+                <button class="show-services-btn">View Services</button>
+                <select class="service-dropdown" style="display: none;">
+                    <option value="">Select a service</option>
+                    <option value="Salon Construction">Salon Construction</option>
+                    <option value="Restaurant Build">Restaurant Build</option>
+                    <option value="Bar Setup">Bar Setup</option>
+                    <option value="Clinic Construction">Clinic Construction</option>
+                    <option value="Office Space Renovation">Office Space Renovation</option>
+                </select>
             </div>
         </section>
 
-        <section id="form-section">
+        <section id="form-section" class="hidden">
             <h2>Get a Quote</h2>
-            <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+            <form id="quote-form">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -63,12 +63,6 @@
                 <label for="estimated-cost">Estimated Cost:</label>
                 <input type="text" id="estimated-cost" name="estimated-cost" readonly>
 
-                <label for="file">Upload Image:</label>
-                <input type="file" id="file" name="file" accept="image/*">
-
-                <label for="construction-docs">Upload Construction Docs (if available):</label>
-                <input type="file" id="construction-docs" name="construction-docs" accept=".pdf,.doc,.docx">
-
                 <label for="need-consultation">
                     <input type="checkbox" id="need-consultation" name="need-consultation"> Need Consultation?
                 </label>
@@ -81,4 +75,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
