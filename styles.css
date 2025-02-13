@@ -17,17 +17,31 @@ body {
     line-height: 1.6;
 }
 
-header {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 1rem 0;
-    text-align: center;
+.hero-header {
+    background-image: url('construction-site.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
+    color: var(--white);
+    font-size: 2em;
+    z-index: 1;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 main {
@@ -37,125 +51,129 @@ main {
 }
 
 .services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .service-category {
-    background: var(--white);
-    padding: 1rem;
+    flex: 1;
+    min-width: 250px; /* Reduced minimum width for smaller screens */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .service-category h2 {
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.service-category p {
-    margin-bottom: 1rem;
+.subtext {
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.show-services-btn {
+.service-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-btn {
     background-color: var(--accent-color);
     color: var(--white);
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 8px 15px; /* Reduced padding for smaller buttons */
+    margin: 5px;
     cursor: pointer;
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease;
+    font-size: 14px; /* Smaller font size on mobile */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.show-services-btn:hover {
-    background-color: #005cb3;
-}
-
-.service-dropdown {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border-radius: var(--border-radius);
-    border: 1px solid #ccc;
-    appearance: none; /* Remove default dropdown arrow for webkit */
-    background: url('data:image/svg+xml;utf8,<svg fill="%230066cc" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 0.5rem center;
-    background-size: 24px 24px;
+.service-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 #form-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
-#form-section:not(.hidden) {
-    opacity: 1;
-    visibility: visible;
-}
-
-#quote-form {
     background-color: var(--white);
-    padding: 1.5rem;
+    padding: 20px;
+    margin: 20px;
     border-radius: var(--border-radius);
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none; /* Hide by default */
 }
 
-form label {
+.form-title {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
     display: block;
-    margin: 1rem 0 0.5rem;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form select {
+input, select {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    padding: 8px;
+    border: 1px solid #ddd;
     border-radius: var(--border-radius);
-    font-size: 1rem;
 }
 
-form input[readonly] {
-    background-color: #f0f0f0;
-}
-
-form button[type="submit"] {
+button[type="submit"] {
     background-color: var(--secondary-color);
     color: var(--white);
     border: none;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    border-radius: var(--border-radius);
+    padding: 10px 20px;
     cursor: pointer;
+    border-radius: var(--border-radius);
+    width: 100%;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
-form button[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #e65c00;
+}
+
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 @media (max-width: 768px) {
     .services {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
-    #quote-form {
-        width: 95%;
+    .service-category {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .service-btn {
+        width: calc(50% - 10px); /* 2 buttons per row on mobile */
+        margin: 5px;
     }
 }
