@@ -1,21 +1,19 @@
 // Show project type options when "Start Your Project" is clicked
 document.getElementById('start-project').addEventListener('click', () => {
-    document.getElementById('project-type').style.display = 'block';
-    document.getElementById('project-type').scrollIntoView({ behavior: 'smooth' });
+    showSection('project-type');
+    updateProgressBar(1);
 });
 
 // Show residential services when residential option is clicked
 document.getElementById('residential-option').addEventListener('click', () => {
-    document.getElementById('project-type').style.display = 'none';
-    document.getElementById('residential-services').style.display = 'block';
-    document.getElementById('residential-services').scrollIntoView({ behavior: 'smooth' });
+    showSection('residential-services');
+    updateProgressBar(2);
 });
 
 // Show commercial services when commercial option is clicked
 document.getElementById('commercial-option').addEventListener('click', () => {
-    document.getElementById('project-type').style.display = 'none';
-    document.getElementById('commercial-services').style.display = 'block';
-    document.getElementById('commercial-services').scrollIntoView({ behavior: 'smooth' });
+    showSection('commercial-services');
+    updateProgressBar(2);
 });
 
 // Scroll to form and pre-fill service type when a service is selected
@@ -24,13 +22,8 @@ document.querySelectorAll('.card[data-service]').forEach(card => {
         const serviceType = card.getAttribute('data-service');
         document.getElementById('service_type').value = serviceType;
 
-        // Hide all service sections
-        document.getElementById('residential-services').style.display = 'none';
-        document.getElementById('commercial-services').style.display = 'none';
-
-        // Show the form
-        document.getElementById('form-section').style.display = 'block';
-        document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+        showSection('form-section');
+        updateProgressBar(3);
 
         // Show/hide upload sections based on service type
         const uploadSection = document.getElementById('upload-section');
@@ -46,12 +39,39 @@ document.querySelectorAll('.card[data-service]').forEach(card => {
     });
 });
 
-// Toggle upload section based on document selection
-document.getElementById('documents').addEventListener('change', function () {
-    const uploadSection = document.getElementById('upload-section');
-    if (this.value === 'yes') {
-        uploadSection.style.display = 'block';
-    } else {
-        uploadSection.style.display = 'none';
-    }
+// Back button functionality
+document.getElementById('back-button').addEventListener('click', () => {
+    showSection('project-type');
+    updateProgressBar(1);
+});
+
+// CTA Banner button functionality
+document.getElementById('cta-button').addEventListener('click', () => {
+    showSection('project-type');
+    updateProgressBar(1);
+});
+
+// Show/hide sections with smooth transitions
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('hidden');
+    });
+    document.getElementById(sectionId).classList.remove('hidden');
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Update progress bar
+function updateProgressBar(step) {
+    document.querySelectorAll('.progress-step').forEach((stepElement, index) => {
+        if (index + 1 <= step) {
+            stepElement.classList.add('active');
+        } else {
+            stepElement.classList.remove('active');
+        }
+    });
+}
+
+// Show loading spinner during form submission
+document.querySelector('form').addEventListener('submit', () => {
+    document.getElementById('loading-spinner').style.display = 'flex';
 });
