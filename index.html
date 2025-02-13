@@ -9,113 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Spinner -->
-    <div id="loading-spinner" style="display: none;">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Sticky Navigation Bar -->
-    <header class="sticky">
-        <nav>
-            <div class="logo">Cielo Alto</div>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section class="hero">
         <div class="hero-content">
             <h1>Cielo Alto Construction Inc.</h1>
             <p class="tagline">Building Dreams, Crafting Excellence</p>
             <p class="description">Your trusted partner for residential and commercial construction services. With over 20 years of experience, we deliver quality and precision in every project.</p>
-            <button id="start-project" class="cta-button" aria-label="Start Your Project">Start Your Project</button>
+            <button id="start-project" class="cta-button">Start Your Project</button>
         </div>
     </section>
 
-    <!-- Progress Bar -->
-    <div id="progress-bar">
-        <div class="progress-step" data-step="1">Project Type</div>
-        <div class="progress-step" data-step="2">Services</div>
-        <div class="progress-step" data-step="3">Form</div>
-    </div>
-
-    <!-- Project Type Selection (Residential/Commercial) -->
-    <section id="project-type" class="section hidden">
+    <!-- Services Section -->
+    <section id="services" class="section">
         <div class="container">
-            <h2>Choose Your Project Type</h2>
-            <div class="options">
-                <div class="card" id="residential-option">
-                    <img src="residential-construction.jpg" alt="Residential Construction">
-                    <h3>Residential</h3>
-                    <p>Transform your home with our expert residential construction services.</p>
-                </div>
-                <div class="card" id="commercial-option">
-                    <img src="commercial-construction.jpg" alt="Commercial Construction">
-                    <h3>Commercial</h3>
-                    <p>Build or renovate your commercial space with precision and care.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Residential Services -->
-    <section id="residential-services" class="section hidden">
-        <div class="container">
-            <button id="back-button" class="back-button">← Back</button>
-            <h2>Residential Services</h2>
-            <p>Choose the type of residential service you need:</p>
-            <div class="options">
-                <div class="card" data-service="bathroom">
-                    <img src="bathroom-icon.svg" alt="Bathroom Icon">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="bathroom-icon.svg" alt="Bathroom">
                     <h3>Bathroom</h3>
+                    <p>Expert bathroom remodeling and renovation services.</p>
                 </div>
-                <div class="card" data-service="kitchen">
-                    <img src="kitchen-icon.svg" alt="Kitchen Icon">
+                <div class="service-card">
+                    <img src="kitchen-icon.svg" alt="Kitchen">
                     <h3>Kitchen</h3>
+                    <p>Modern kitchen designs and renovations.</p>
                 </div>
-                <div class="card" data-service="flooring">
-                    <img src="flooring-icon.svg" alt="Flooring Icon">
+                <div class="service-card">
+                    <img src="flooring-icon.svg" alt="Flooring">
                     <h3>Flooring</h3>
+                    <p>High-quality flooring installation and repair.</p>
                 </div>
-                <div class="card" data-service="renovation">
-                    <img src="renovation-icon.svg" alt="Renovation Icon">
-                    <h3>Flipping / Full Renovation</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Commercial Services -->
-    <section id="commercial-services" class="section hidden">
-        <div class="container">
-            <button id="back-button" class="back-button">← Back</button>
-            <h2>Commercial Services</h2>
-            <p>Choose the type of commercial service you need:</p>
-            <div class="options">
-                <div class="card" data-service="salon">
-                    <img src="salon-icon.svg" alt="Salon Icon">
-                    <h3>Salon</h3>
-                </div>
-                <div class="card" data-service="restaurant">
-                    <img src="restaurant-icon.svg" alt="Restaurant Icon">
-                    <h3>Restaurant</h3>
-                </div>
-                <div class="card" data-service="bar">
-                    <img src="bar-icon.svg" alt="Bar Icon">
-                    <h3>Bar</h3>
-                </div>
-                <div class="card" data-service="clinic">
-                    <img src="clinic-icon.svg" alt="Clinic Icon">
-                    <h3>Clinic</h3>
-                </div>
-                <div class="card" data-service="office">
-                    <img src="office-icon.svg" alt="Office Icon">
-                    <h3>Office Space</h3>
+                <div class="service-card">
+                    <img src="renovation-icon.svg" alt="Renovation">
+                    <h3>Renovation</h3>
+                    <p>Full home and office renovation services.</p>
                 </div>
             </div>
         </div>
@@ -145,105 +72,79 @@
     </section>
 
     <!-- Form Section -->
-    <section id="form-section" class="section hidden">
+    <section id="form-section" class="section">
         <div class="container">
-            <h2>Project Details</h2>
+            <h2>Start Your Project</h2>
             <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_subject" value="New Project Inquiry">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="service_type" id="service_type">
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required aria-label="Enter your name">
-                <div class="error-message" id="name-error"></div>
+                <!-- Name -->
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name</label>
+                    <div class="error-message" id="name-error"></div>
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required aria-label="Enter your email">
-                <div class="error-message" id="email-error"></div>
+                <!-- Email -->
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <div class="error-message" id="email-error"></div>
+                </div>
 
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required aria-label="Enter your phone number">
-                <div class="error-message" id="phone-error"></div>
+                <!-- Phone -->
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone</label>
+                    <div class="error-message" id="phone-error"></div>
+                </div>
 
-                <label for="documents">Do you have construction documents or are you working with an architect?</label>
-                <select id="documents" name="documents" required>
-                    <option value="yes">Yes, I have documents</option>
-                    <option value="no">No, I need a consultation</option>
-                </select>
+                <!-- Construction Documents Question -->
+                <div class="form-group">
+                    <label for="documents">Do you have construction documents or are you working with an architect?</label>
+                    <select id="documents" name="documents" required>
+                        <option value="yes">Yes, I have documents</option>
+                        <option value="no">No, I need a consultation</option>
+                    </select>
+                </div>
 
+                <!-- File Upload Section -->
                 <div id="upload-section">
                     <label for="file">Upload Construction Documents or Floorplan:</label>
                     <input type="file" id="file" name="file">
                 </div>
 
+                <!-- Photo Upload Section -->
                 <div id="photo-section">
                     <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
                     <input type="file" id="photo" name="photo" accept="image/*">
                 </div>
 
-                <label for="message">Additional Details:</label>
-                <textarea id="message" name="message" rows="8"></textarea>
+                <!-- Additional Details -->
+                <div class="form-group">
+                    <label for="message">Additional Details:</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
 
-                <button type="submit">Submit</button>
+                <!-- Submit Button -->
+                <button type="submit" class="cta-button">Submit</button>
             </form>
         </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section id="cta-banner">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Contact us today for a free consultation!</p>
-            <button id="cta-button" class="cta-button">Get Started</button>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3>How long does a typical project take?</h3>
-                <p>Most projects take between 4-8 weeks, depending on the scope and complexity.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Do you provide free consultations?</h3>
-                <p>Yes, we offer free consultations to discuss your project needs.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section id="social-proof" class="section">
-        <div class="container">
-            <h2>Trusted By</h2>
-            <div class="logos">
-                <img src="client-logo1.png" alt="Client Logo 1">
-                <img src="client-logo2.png" alt="Client Logo 2">
-                <img src="client-logo3.png" alt="Client Logo 3">
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: info@cieloalto.com</p>
-                    <p>Phone: (123) 456-7890</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
             <p>&copy; 2023 Cielo Alto Construction Inc. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
