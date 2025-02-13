@@ -8,6 +8,13 @@ body {
     color: #333;
 }
 
+/* Container for Centering Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Sticky Navigation Bar */
 header.sticky {
     position: sticky;
@@ -22,8 +29,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
@@ -45,7 +50,7 @@ nav ul li a {
 }
 
 .cta-button {
-    background: linear-gradient(45deg, #ff6f61, #ff4a3d);
+    background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -54,12 +59,12 @@ nav ul li a {
 }
 
 .cta-button:hover {
-    background: linear-gradient(45deg, #ff4a3d, #ff6f61);
+    background: linear-gradient(45deg, #0056b3, #007BFF);
 }
 
 /* Hero Section */
 .hero {
-    background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+    background: url('construction-hero.jpg') no-repeat center center/cover;
     color: #fff;
     height: 100vh;
     display: flex;
@@ -69,7 +74,7 @@ nav ul li a {
 }
 
 .hero-content {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     padding: 40px;
     border-radius: 10px;
 }
@@ -84,12 +89,29 @@ nav ul li a {
     margin: 10px 0 20px;
 }
 
+/* Sections */
+.section {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
 /* Cards for Services */
 .options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
 }
 
 .card {
@@ -108,7 +130,7 @@ nav ul li a {
 
 .card i {
     font-size: 2rem;
-    color: #ff6f61;
+    color: #007BFF;
     margin-bottom: 10px;
 }
 
@@ -118,12 +140,6 @@ nav ul li a {
 }
 
 /* Testimonials Section */
-#testimonials {
-    background: #fff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
 .testimonial-carousel {
     display: flex;
     justify-content: center;
@@ -149,11 +165,47 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* Form Section */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    background: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
 /* Footer */
 footer {
     background: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -179,5 +231,5 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #ff6f61;
+    color: #007BFF;
 }
