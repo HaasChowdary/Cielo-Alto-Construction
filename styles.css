@@ -84,9 +84,15 @@ nav ul li a {
     margin: 0;
 }
 
-.hero p {
+.hero .tagline {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.hero .description {
     font-size: 1.2rem;
-    margin: 10px 0 20px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 /* Sections */
@@ -167,7 +173,7 @@ nav ul li a {
 
 /* Form Section */
 form {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background: #f4f4f4;
     padding: 20px;
