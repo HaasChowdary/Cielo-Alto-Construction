@@ -1,7 +1,7 @@
 // Show form when a service is selected
-document.querySelectorAll('.options button').forEach(button => {
-    button.addEventListener('click', () => {
-        const serviceType = button.getAttribute('data-service');
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        const serviceType = card.getAttribute('data-service');
         document.getElementById('service_type').value = serviceType;
         document.getElementById('form-section').style.display = 'block';
 
