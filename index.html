@@ -16,8 +16,6 @@
         <nav>
             <div class="logo">Cielo Alto</div>
             <ul>
-                <li><a href="#residential">Residential</a></li>
-                <li><a href="#commercial">Commercial</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
             </ul>
         </nav>
@@ -29,12 +27,31 @@
             <h1>Cielo Alto Construction Inc.</h1>
             <p class="tagline">Building Dreams, Crafting Excellence</p>
             <p class="description">Your trusted partner for residential and commercial construction services. With over 20 years of experience, we deliver quality and precision in every project.</p>
-            <a href="#form-section" class="cta-button">Start Your Project</a>
+            <button id="start-project" class="cta-button">Start Your Project</button>
         </div>
     </section>
 
-    <!-- Residential Section -->
-    <section id="residential" class="section" style="display: none;">
+    <!-- Project Type Selection (Residential/Commercial) -->
+    <section id="project-type" class="section" style="display: none;">
+        <div class="container">
+            <h2>Choose Your Project Type</h2>
+            <div class="options">
+                <div class="card" id="residential-option">
+                    <img src="residential.jpg" alt="Residential">
+                    <h3>Residential</h3>
+                    <p>Transform your home with our expert residential construction services.</p>
+                </div>
+                <div class="card" id="commercial-option">
+                    <img src="commercial.jpg" alt="Commercial">
+                    <h3>Commercial</h3>
+                    <p>Build or renovate your commercial space with precision and care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Residential Services -->
+    <section id="residential-services" class="section" style="display: none;">
         <div class="container">
             <h2>Residential Services</h2>
             <p>Choose the type of residential service you need:</p>
@@ -59,8 +76,8 @@
         </div>
     </section>
 
-    <!-- Commercial Section -->
-    <section id="commercial" class="section" style="display: none;">
+    <!-- Commercial Services -->
+    <section id="commercial-services" class="section" style="display: none;">
         <div class="container">
             <h2>Commercial Services</h2>
             <p>Choose the type of commercial service you need:</p>
@@ -107,7 +124,7 @@
     </section>
 
     <!-- Form Section -->
-    <section id="form-section" class="section">
+    <section id="form-section" class="section" style="display: none;">
         <div class="container">
             <h2>Project Details</h2>
             <form action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
