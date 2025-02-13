@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('#main-nav ul');
-    const backToTop = document.querySelector('#back-to-top');
+    const form = document.getElementById('contact-form');
+    const serviceTypeSelect = form.querySelector('select[name="service-type"]');
+    const specificServiceInput = form.querySelector('input[name="specific-service"]');
+    const documentUploadSection = document.getElementById('document-upload');
+    const uploadSection = document.getElementById('upload-section');
+    const consultationSection = document.getElementById('consultation-section');
+    const photoUploadSection = document.getElementById('photo-upload-section');
 
     // Toggle mobile menu
     hamburger.addEventListener('click', function() {
@@ -14,26 +20,4 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             navMenu.classList.remove('show');
             document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Back to top button visibility
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTop.style.display = 'block';
-        } else {
-            backToTop.style.display = 'none';
-        }
-    });
-
-    // Form submission (you'll need to implement actual form submission logic)
-    const contactForm = document.querySelector('#contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Add your form submission logic here
-        alert('Form submitted successfully!');
-        contactForm.reset();
-    });
-});
+                behavior:
