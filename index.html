@@ -122,69 +122,94 @@
             </div>
         </div>
     </section>
+    <!-- Form Section -->
+<section id="form-section" class="section hidden">
+    <div class="container">
+        <h2>Get a Quote</h2>
+        <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New Project Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="service_type" id="service_type">
 
-<!-- Form Section -->
-    <section id="form-section" class="section">
-        <div class="container">
-            <h2>Start Your Project</h2>
-            <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="New Project Inquiry">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="service_type" id="service_type">
+            <!-- Name -->
+            <div class="form-group">
+                <input type="text" id="name" name="name" required>
+                <label for="name">Name</label>
+                <div class="error-message" id="name-error"></div>
+            </div>
 
-                <!-- Name -->
-                <div class="form-group">
-                    <input type="text" id="name" name="name" required>
-                    <label for="name">Name</label>
-                    <div class="error-message" id="name-error"></div>
-                </div>
+            <!-- Email -->
+            <div class="form-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+                <div class="error-message" id="email-error"></div>
+            </div>
 
-                <!-- Email -->
-                <div class="form-group">
-                    <input type="email" id="email" name="email" required>
-                    <label for="email">Email</label>
-                    <div class="error-message" id="email-error"></div>
-                </div>
+            <!-- Phone -->
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" required>
+                <label for="phone">Phone</label>
+                <div class="error-message" id="phone-error"></div>
+            </div>
 
-                <!-- Phone -->
-                <div class="form-group">
-                    <input type="tel" id="phone" name="phone" required>
-                    <label for="phone">Phone</label>
-                    <div class="error-message" id="phone-error"></div>
-                </div>
+            <!-- Service Type -->
+            <div class="form-group">
+                <label for="service">Service Type</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <optgroup label="Residential">
+                        <option value="bathroom">Bathroom</option>
+                        <option value="kitchen">Kitchen</option>
+                        <option value="flooring">Flooring</option>
+                        <option value="renovation">Flipping / Full Renovation</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="fencing">Fencing</option>
+                        <option value="gutters">Gutters</option>
+                        <option value="concrete">Concrete</option>
+                    </optgroup>
+                    <optgroup label="Commercial">
+                        <option value="salon">Salon</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="bar">Bar</option>
+                        <option value="clinic">Clinic</option>
+                        <option value="office">Office Space</option>
+                    </optgroup>
+                </select>
+            </div>
 
-                <!-- Construction Documents Question -->
-                <div class="form-group">
-                    <label for="documents">Do you have construction documents or are you working with an architect?</label>
-                    <select id="documents" name="documents" required>
-                        <option value="yes">Yes, I have documents</option>
-                        <option value="no">No, I need a consultation</option>
-                    </select>
-                </div>
+            <!-- Construction Documents Question -->
+            <div class="form-group">
+                <label for="documents">Do you have construction documents or are you working with an architect?</label>
+                <select id="documents" name="documents" required>
+                    <option value="yes">Yes, I have documents</option>
+                    <option value="no">No, I need a consultation</option>
+                </select>
+            </div>
 
-                <!-- File Upload Section -->
-                <div id="upload-section">
-                    <label for="file">Upload Construction Documents or Floorplan:</label>
-                    <input type="file" id="file" name="file">
-                </div>
+            <!-- File Upload Section (Conditional) -->
+            <div id="upload-section" class="form-group hidden">
+                <label for="file">Upload Construction Documents or Floorplan:</label>
+                <input type="file" id="file" name="file">
+            </div>
 
-                <!-- Photo Upload Section -->
-                <div id="photo-section">
-                    <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
-                    <input type="file" id="photo" name="photo" accept="image/*">
-                </div>
+            <!-- Photo Upload Section (Conditional) -->
+            <div id="photo-section" class="form-group hidden">
+                <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
 
-                <!-- Additional Details -->
-                <div class="form-group">
-                    <label for="message">Additional Details:</label>
-                    <textarea id="message" name="message" rows="5"></textarea>
-                </div>
+            <!-- Additional Details -->
+            <div class="form-group">
+                <label for="message">Additional Details:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="cta-button">Submit</button>
-            </form>
-        </div>
-    </section>
+            <!-- Submit Button -->
+            <button type="submit" class="cta-button">Submit</button>
+        </form>
+    </div>
+</section>
+             
 
     <!-- Footer -->
     <footer>
