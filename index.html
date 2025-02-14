@@ -3,208 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cielo Alto Construction Inc.</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cielo Alto Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --accent: #3498db;
+            --light: #f9f9f9;
+            --dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background: var(--light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-category h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-tile {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: var(--light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .service-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Form Section */
+        .form-section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: none;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="container">
+        <div class="nav-container">
             <div class="logo">Cielo Alto</div>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#form-section" class="cta-button">Get a Quote</a></li>
+                <li><a href="#form" class="cta">Get Quote</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="section active">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Cielo Alto Construction Inc.</h1>
-            <p class="tagline">Building Dreams, Crafting Excellence</p>
-            <p class="description">Your trusted partner for residential and commercial construction services.</p>
+            <h1>Building Your Vision, Crafting Excellence</h1>
+            <p>20+ years of transforming spaces into masterpieces</p>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section hidden">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-categories">
-                
-                <!-- Residential Services -->
-                <div class="category-card residential">
-                    <h3>Residential Services</h3>
-                    <div class="sub-services">
-                        <div class="sub-service" data-service="bathroom">
-                            <img src="bathroom-icon.svg" alt="Bathroom">
-                            <h4>Bathroom Remodeling</h4>
-                            <p>Complete transformations with modern designs and premium materials.</p>
-                        </div>
-                        <div class="sub-service" data-service="kitchen">
-                            <img src="kitchen-icon.svg" alt="Kitchen">
-                            <h4>Kitchen Renovation</h4>
-                            <p>Upgrade your kitchen with custom designs and high-quality materials.</p>
-                        </div>
-                        <div class="sub-service" data-service="flooring">
-                            <img src="flooring-icon.svg" alt="Flooring">
-                            <h4>Flooring</h4>
-                            <p>Install or repair hardwood, tile, or carpet flooring.</p>
-                        </div>
-                        <div class="sub-service" data-service="renovation">
-                            <img src="renovation-icon.svg" alt="Renovation">
-                            <h4>Full Home Renovation</h4>
-                            <p>Completely transform your home with our full renovation services.</p>
-                        </div>
-                        <div class="sub-service" data-service="roofing">
-                            <img src="roofing-icon.svg" alt="Roofing">
-                            <h4>Roofing</h4>
-                            <p>Install, repair, or replace your roof with durable materials.</p>
-                        </div>
-                        <div class="sub-service" data-service="fencing">
-                            <img src="fencing-icon.svg" alt="Fencing">
-                            <h4>Fencing</h4>
-                            <p>Add privacy and security with custom fencing solutions.</p>
-                        </div>
-                        <div class="sub-service" data-service="gutters">
-                            <img src="gutters-icon.svg" alt="Gutters">
-                            <h4>Gutters</h4>
-                            <p>Install or repair gutters to protect your home from water damage.</p>
-                        </div>
-                        <div class="sub-service" data-service="concrete">
-                            <img src="concrete-icon.svg" alt="Concrete">
-                            <h4>Concrete</h4>
-                            <p>Create durable driveways, patios, and walkways.</p>
-                        </div>
-                    </div>
+    <section class="services" id="services">
+        <div class="service-grid">
+            <!-- Residential Services -->
+            <div class="service-category">
+                <h2>Residential Services</h2>
+                <div class="service-tile" data-service="bathroom">
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Complete transformations with modern designs</p>
                 </div>
+                <!-- Add other residential services -->
+            </div>
 
-                <!-- Commercial Services -->
-                <div class="category-card commercial">
-                    <h3>Commercial Services</h3>
-                    <div class="sub-services">
-                        <div class="sub-service" data-service="salon">
-                            <img src="salon-icon.svg" alt="Salon">
-                            <h4>Salon Design</h4>
-                            <p>Create a welcoming and functional space for your salon.</p>
-                        </div>
-                        <div class="sub-service" data-service="restaurant">
-                            <img src="restaurant-icon.svg" alt="Restaurant">
-                            <h4>Restaurant Design</h4>
-                            <p>Design and build a restaurant that reflects your brand.</p>
-                        </div>
-                        <div class="sub-service" data-service="bar">
-                            <img src="bar-icon.svg" alt="Bar">
-                            <h4>Bar Design</h4>
-                            <p>Build a stylish and functional bar for your customers.</p>
-                        </div>
-                        <div class="sub-service" data-service="clinic">
-                            <img src="clinic-icon.svg" alt="Clinic">
-                            <h4>Clinic Design</h4>
-                            <p>Create a professional and comfortable medical clinic.</p>
-                        </div>
-                        <div class="sub-service" data-service="office">
-                            <img src="office-icon.svg" alt="Office">
-                            <h4>Office Space</h4>
-                            <p>Design and construct office spaces for productivity.</p>
-                        </div>
-                    </div>
+            <!-- Commercial Services -->
+            <div class="service-category">
+                <h2>Commercial Services</h2>
+                <div class="service-tile" data-service="office">
+                    <h3>Office Spaces</h3>
+                    <p>Professional workspace design & construction</p>
                 </div>
+                <!-- Add other commercial services -->
             </div>
         </div>
     </section>
 
-<!-- Form Section -->
-<section id="form-section" class="section hidden">
-    <div class="container">
-        <h2>Get a Quote</h2>
-        <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="New Project Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="service_type" id="service_type">
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="form-container">
+            <h2>Start Your Project</h2>
+            <form id="projectForm">
+                <!-- Form fields -->
+            </form>
+        </div>
+    </section>
 
-            <!-- Name -->
-            <div class="form-group">
-                <input type="text" id="name" name="name" required>
-                <label for="name">Name</label>
-                <div class="error-message" id="name-error"></div>
-            </div>
+    <script>
+        // Navigation handling
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
+            });
+        });
 
-            <!-- Email -->
-            <div class="form-group">
-                <input type="email" id="email" name="email" required>
-                <label for="email">Email</label>
-                <div class="error-message" id="email-error"></div>
-            </div>
+        // Service tile interactions
+        document.querySelectorAll('.service-tile').forEach(tile => {
+            tile.addEventListener('click', function() {
+                const serviceType = this.dataset.service;
+                showSection('form');
+                document.getElementById('serviceType').value = serviceType;
+            });
+        });
 
-            <!-- Phone -->
-            <div class="form-group">
-                <input type="tel" id="phone" name="phone" required>
-                <label for="phone">Phone</label>
-                <div class="error-message" id="phone-error"></div>
-            </div>
+        // Show/hide sections
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            <!-- Service Type -->
-            <div class="form-group">
-                <label for="service">Service Type</label>
-                <select id="service" name="service" required>
-                    <option value="">Select a service</option>
-                    <optgroup label="Residential">
-                        <option value="bathroom">Bathroom</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="flooring">Flooring</option>
-                        <option value="renovation">Flipping / Full Renovation</option>
-                        <option value="roofing">Roofing</option>
-                        <option value="fencing">Fencing</option>
-                        <option value="gutters">Gutters</option>
-                        <option value="concrete">Concrete</option>
-                    </optgroup>
-                    <optgroup label="Commercial">
-                        <option value="salon">Salon</option>
-                        <option value="restaurant">Restaurant</option>
-                        <option value="bar">Bar</option>
-                        <option value="clinic">Clinic</option>
-                        <option value="office">Office Space</option>
-                    </optgroup>
-                </select>
-            </div>
-
-            <!-- Construction Documents Question -->
-            <div class="form-group">
-                <label for="documents">Do you have construction documents or are you working with an architect?</label>
-                <select id="documents" name="documents" required>
-                    <option value="yes">Yes, I have documents</option>
-                    <option value="no">No, I need a consultation</option>
-                </select>
-            </div>
-
-            <!-- File Upload Section (Conditional) -->
-            <div id="upload-section" class="form-group hidden">
-                <label for="file">Upload Construction Documents or Floorplan:</label>
-                <input type="file" id="file" name="file">
-            </div>
-
-            <!-- Photo Upload Section (Conditional) -->
-            <div id="photo-section" class="form-group hidden">
-                <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
-                <input type="file" id="photo" name="photo" accept="image/*">
-            </div>
-
-            <!-- Additional Details -->
-            <div class="form-group">
-                <label for="message">Additional Details:</label>
-                <textarea id="message" name="message" rows="5"></textarea>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="cta-button">Submit</button>
-        </form>
-    </div>
-</section>
-
-    <script src="script.js"></script>
+        // Initial setup
+        showSection('home');
+    </script>
 </body>
 </html>
