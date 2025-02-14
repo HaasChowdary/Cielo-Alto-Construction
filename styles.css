@@ -1,262 +1,29 @@
-/* General Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Roboto', sans-serif;
-    color: #2c3e50;
-}
-
-p {
-    line-height: 1.6;
-}
-
-/* Navigation Bar */
-nav {
-    background: #2c3e50;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav .container {
+/* Full-Page Form Styling */
+.full-page-form {
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-nav .logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
+.full-page-form .container {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
 }
 
-nav .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav .nav-links a:hover {
-    color: #e67e22;
-}
-
-nav .cta-button {
-    background-color: #e67e22;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-nav .cta-button:hover {
-    background-color: #d35400;
-    transform: translateY(-2px);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    color: white;
-    padding: 150px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-/* Services Section */
-#services {
-    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
-    padding: 80px 0;
-}
-
-.service-categories {
-    display: grid;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.category-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.learn-more {
-    background: #3498db;
-    color: white;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+/* Conditional Form Fields */
+#upload-section,
+#photo-section {
     transition: all 0.3s ease;
 }
 
-.learn-more:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-}
-
-.sub-services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    padding-top: 20px;
-    border-top: 2px solid #eee;
-}
-
-.sub-service {
-    text-align: center;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sub-service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.sub-service img {
-    width: 60px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.sub-service h4 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-.sub-service p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Form Section */
-#form-section {
-    background: linear-gradient(135deg, #ffffff, #f4f4f4);
-    padding: 80px 0;
-}
-
-#form-section .container {
-    max-width: 600px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input, .form-group textarea, .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.error-message {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-/* Loading Spinner */
-#loading-spinner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .service-categories {
+        grid-template-columns: 1fr;
+    }
 }
