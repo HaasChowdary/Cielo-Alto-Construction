@@ -1,41 +1,28 @@
-// Toggle Service Categories
-document.querySelectorAll('.learn-more').forEach(button => {
-    button.addEventListener('click', (e) => {
-        const categoryCard = e.target.closest('.category-card');
-        const subServices = categoryCard.querySelector('.sub-services');
-        const isExpanded = subServices.classList.contains('active');
-        
-        // Close all open categories first
-        document.querySelectorAll('.sub-services').forEach(s => {
-            s.classList.remove('active');
-            s.classList.add('hidden');
+// Show sections based on navigation clicks
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('hidden');
         });
-        
-        // Toggle current category
-        if(!isExpanded) {
-            subServices.classList.add('active');
-            subServices.classList.remove('hidden');
-            e.target.textContent = 'Show Less';
-        } else {
-            subServices.classList.remove('active');
-            subServices.classList.add('hidden');
-            e.target.textContent = 'Learn More';
-        }
+
+        // Show the target section
+        targetSection.classList.remove('hidden');
+
+        // Smooth scroll to the target section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Handle Get Quote buttons
-document.querySelectorAll('.sub-service .cta-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const serviceType = this.dataset.service;
-        const formSection = document.getElementById('form-section');
-        
-        // Set service type in form
-        document.getElementById('service').value = serviceType;
-        
-        // Show and scroll to form
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        formSection.classList.add('active');
-        formSection.scrollIntoView({ behavior: 'smooth' });
+// Toggle sub-services on "Learn More" click
+document.querySelectorAll('.learn-more').forEach(button => {
+    button.addEventListener('click', function () {
+        const subServices = this.closest('.category-card').querySelector('.sub-services');
+        subServices.classList.toggle('hidden');
+        this.textContent = subServices.classList.contains('hidden') ? 'Learn More' : 'Show Less';
     });
 });
