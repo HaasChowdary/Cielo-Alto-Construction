@@ -47,10 +47,10 @@ function scrollToSection(targetId) {
     });
 }
 
+// Enhanced form handling
 function handleFormSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form);
     let isValid = true;
 
     // Clear previous errors
@@ -64,17 +64,55 @@ function handleFormSubmit(e) {
         }
     });
 
+    // Validate file uploads
+    const fileInputs = form.querySelectorAll('input[type="file"]');
+    fileInputs.forEach(input => {
+        if (input.files.length > 5) {
+            isValid = false;
+            showFieldError(input, 'Maximum 5 files allowed');
+        }
+    });
+
     if (isValid) {
         showLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            showLoading(false);
+        
+        // Create FormData and handle files
+        const formData = new FormData(form);
+        
+        // Add custom formsubmit.co parameters
+        formData.append('_replyto', form.email.value);
+        formData.append('_next', 'https://peterxf2499@gmail.com/thank-you.html');
+        
+        // Simulate actual form submission
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Submission failed');
             showSuccessMessage();
             form.reset();
             scrollToSection('home');
-        }, 2000);
+        })
+        .catch(error => {
+            showFieldError(form, 'Submission failed. Please try again.');
+        })
+        .finally(() => {
+            showLoading(false);
+        });
     }
 }
+
+// Enhanced file upload styling
+document.querySelectorAll('.file-upload input[type="file"]').forEach(input => {
+    input.addEventListener('change', function() {
+        const label = this.nextElementSibling;
+        const files = Array.from(this.files).map(file => file.name);
+        label.innerHTML = files.length > 0 
+            ? `<strong>${files.length} files selected:</strong><br>${files.join('<br>')}`
+            : 'Upload Files';
+    });
+});
 
 function showFieldError(field, message) {
     const error = document.createElement('div');
@@ -154,9 +192,3 @@ function showSuccessMessage() {
         setTimeout(() => success.remove(), 500);
     }, 2500);
 }
-
-// Add to your CSS:
-// @keyframes slideOut {
-//     from { transform: translateX(0); }
-//     to { transform: translateX(150%); }
-// }
