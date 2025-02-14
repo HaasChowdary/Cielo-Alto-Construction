@@ -26,3 +26,31 @@ document.querySelectorAll('.learn-more').forEach(button => {
         this.textContent = subServices.classList.contains('hidden') ? 'Learn More' : 'Show Less';
     });
 });
+
+// Show/hide file upload sections based on construction documents question
+document.getElementById('documents').addEventListener('change', function () {
+    const uploadSection = document.getElementById('upload-section');
+    const photoSection = document.getElementById('photo-section');
+
+    if (this.value === 'yes') {
+        uploadSection.classList.remove('hidden');
+        photoSection.classList.remove('hidden');
+    } else {
+        uploadSection.classList.add('hidden');
+        photoSection.classList.add('hidden');
+    }
+});
+
+// Handle form submission
+document.getElementById('project-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex';
+
+    // Simulate form submission delay
+    setTimeout(() => {
+        spinner.style.display = 'none';
+        alert('Thank you! Your project inquiry has been submitted.');
+        this.reset();
+    }, 2000);
+});
