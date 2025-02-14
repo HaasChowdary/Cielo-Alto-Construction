@@ -15,7 +15,8 @@
             <div class="logo">Cielo Alto</div>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#residential">Residential</a></li>
+                <li><a href="#commercial">Commercial</a></li>
                 <li><a href="#form-section" class="cta-button">Get a Quote</a></li>
             </ul>
         </div>
@@ -27,50 +28,100 @@
             <h1>Cielo Alto Construction Inc.</h1>
             <p class="tagline">Building Dreams, Crafting Excellence</p>
             <p class="description">Your trusted partner for residential and commercial construction services. With over 20 years of experience, we deliver quality and precision in every project.</p>
-            <button id="start-project" class="cta-button">Start Your Project</button>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
+    <!-- Residential Section -->
+    <section id="residential" class="section">
         <div class="container">
-            <h2>Our Services</h2>
+            <h2>Residential Services</h2>
             <div class="service-grid">
                 <div class="service-card">
                     <img src="bathroom-icon.svg" alt="Bathroom">
                     <h3>Bathroom</h3>
-                    <p class="service-description">Expert bathroom remodeling and renovation services.</p>
-                    <button class="toggle-details">Learn More</button>
-                    <div class="details">
-                        <p>We specialize in modern bathroom designs, including tile work, plumbing, and lighting.</p>
-                    </div>
+                    <p>Expert bathroom remodeling and renovation services.</p>
+                    <button class="cta-button" data-service="residential-bathroom">Get Started</button>
                 </div>
                 <div class="service-card">
                     <img src="kitchen-icon.svg" alt="Kitchen">
                     <h3>Kitchen</h3>
-                    <p class="service-description">Modern kitchen designs and renovations.</p>
-                    <button class="toggle-details">Learn More</button>
-                    <div class="details">
-                        <p>From cabinets to countertops, we create functional and stylish kitchens.</p>
-                    </div>
+                    <p>Modern kitchen designs and renovations.</p>
+                    <button class="cta-button" data-service="residential-kitchen">Get Started</button>
                 </div>
                 <div class="service-card">
                     <img src="flooring-icon.svg" alt="Flooring">
                     <h3>Flooring</h3>
-                    <p class="service-description">High-quality flooring installation and repair.</p>
-                    <button class="toggle-details">Learn More</button>
-                    <div class="details">
-                        <p>We offer hardwood, tile, and carpet flooring solutions.</p>
-                    </div>
+                    <p>High-quality flooring installation and repair.</p>
+                    <button class="cta-button" data-service="residential-flooring">Get Started</button>
                 </div>
                 <div class="service-card">
                     <img src="renovation-icon.svg" alt="Renovation">
-                    <h3>Renovation</h3>
-                    <p class="service-description">Full home and office renovation services.</p>
-                    <button class="toggle-details">Learn More</button>
-                    <div class="details">
-                        <p>Transform your space with our comprehensive renovation services.</p>
-                    </div>
+                    <h3>Flipping / Full Renovation</h3>
+                    <p>Full home renovation and flipping services.</p>
+                    <button class="cta-button" data-service="residential-renovation">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="roofing-icon.svg" alt="Roofing">
+                    <h3>Roofing</h3>
+                    <p>Roof installation, repair, and maintenance.</p>
+                    <button class="cta-button" data-service="residential-roofing">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="fencing-icon.svg" alt="Fencing">
+                    <h3>Fencing</h3>
+                    <p>Custom fencing solutions for your home.</p>
+                    <button class="cta-button" data-service="residential-fencing">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="gutters-icon.svg" alt="Gutters">
+                    <h3>Gutters</h3>
+                    <p>Gutter installation and repair services.</p>
+                    <button class="cta-button" data-service="residential-gutters">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="concrete-icon.svg" alt="Concrete">
+                    <h3>Concrete</h3>
+                    <p>Concrete driveways, patios, and walkways.</p>
+                    <button class="cta-button" data-service="residential-concrete">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Section -->
+    <section id="commercial" class="section">
+        <div class="container">
+            <h2>Commercial Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="salon-icon.svg" alt="Salon">
+                    <h3>Salon</h3>
+                    <p>Custom salon design and construction.</p>
+                    <button class="cta-button" data-service="commercial-salon">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="restaurant-icon.svg" alt="Restaurant">
+                    <h3>Restaurant</h3>
+                    <p>Restaurant layout and renovation services.</p>
+                    <button class="cta-button" data-service="commercial-restaurant">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="bar-icon.svg" alt="Bar">
+                    <h3>Bar</h3>
+                    <p>Bar design and construction.</p>
+                    <button class="cta-button" data-service="commercial-bar">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="clinic-icon.svg" alt="Clinic">
+                    <h3>Clinic</h3>
+                    <p>Medical clinic construction and remodeling.</p>
+                    <button class="cta-button" data-service="commercial-clinic">Get Started</button>
+                </div>
+                <div class="service-card">
+                    <img src="office-icon.svg" alt="Office Space">
+                    <h3>Office Space</h3>
+                    <p>Office design and construction services.</p>
+                    <button class="cta-button" data-service="commercial-office">Get Started</button>
                 </div>
             </div>
         </div>
@@ -104,6 +155,31 @@
                     <input type="tel" id="phone" name="phone" required>
                     <label for="phone">Phone</label>
                     <div class="error-message" id="phone-error"></div>
+                </div>
+
+                <!-- Service Type -->
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <optgroup label="Residential">
+                            <option value="bathroom">Bathroom</option>
+                            <option value="kitchen">Kitchen</option>
+                            <option value="flooring">Flooring</option>
+                            <option value="renovation">Flipping / Full Renovation</option>
+                            <option value="roofing">Roofing</option>
+                            <option value="fencing">Fencing</option>
+                            <option value="gutters">Gutters</option>
+                            <option value="concrete">Concrete</option>
+                        </optgroup>
+                        <optgroup label="Commercial">
+                            <option value="salon">Salon</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="bar">Bar</option>
+                            <option value="clinic">Clinic</option>
+                            <option value="office">Office Space</option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <!-- Construction Documents Question -->
