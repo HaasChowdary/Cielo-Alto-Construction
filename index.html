@@ -45,16 +45,43 @@
                         <div class="sub-service">
                             <img src="bathroom-icon.svg" alt="Bathroom">
                             <h4>Bathroom Remodeling</h4>
-                            <p>Complete bathroom transformations with modern designs.</p>
-                            <button class="cta-button" data-service="bathroom">Get Quote</button>
+                            <p>Transform your bathroom into a modern oasis with our expert remodeling services. We handle everything from plumbing to tiling.</p>
                         </div>
                         <div class="sub-service">
                             <img src="kitchen-icon.svg" alt="Kitchen">
                             <h4>Kitchen Renovation</h4>
-                            <p>Modern kitchen designs and renovations.</p>
-                            <button class="cta-button" data-service="kitchen">Get Quote</button>
+                            <p>Upgrade your kitchen with custom designs, high-quality materials, and efficient layouts tailored to your needs.</p>
                         </div>
-                        <!-- Add more residential sub-services -->
+                        <div class="sub-service">
+                            <img src="flooring-icon.svg" alt="Flooring">
+                            <h4>Flooring</h4>
+                            <p>Install or repair hardwood, tile, or carpet flooring to enhance the beauty and functionality of your home.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="renovation-icon.svg" alt="Renovation">
+                            <h4>Full Home Renovation</h4>
+                            <p>Completely transform your home with our full renovation services, including structural changes and interior design.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="roofing-icon.svg" alt="Roofing">
+                            <h4>Roofing</h4>
+                            <p>Install, repair, or replace your roof with durable materials and expert craftsmanship.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="fencing-icon.svg" alt="Fencing">
+                            <h4>Fencing</h4>
+                            <p>Add privacy and security to your property with custom fencing solutions.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="gutters-icon.svg" alt="Gutters">
+                            <h4>Gutters</h4>
+                            <p>Install or repair gutters to protect your home from water damage.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="concrete-icon.svg" alt="Concrete">
+                            <h4>Concrete</h4>
+                            <p>Create durable and stylish driveways, patios, and walkways with our concrete services.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -66,33 +93,105 @@
                     </div>
                     <div class="sub-services hidden">
                         <div class="sub-service">
-                            <img src="office-icon.svg" alt="Office">
-                            <h4>Office Spaces</h4>
-                            <p>Professional workspace design and construction.</p>
-                            <button class="cta-button" data-service="office">Get Quote</button>
+                            <img src="salon-icon.svg" alt="Salon">
+                            <h4>Salon Design</h4>
+                            <p>Create a welcoming and functional space for your salon with our custom design services.</p>
                         </div>
                         <div class="sub-service">
                             <img src="restaurant-icon.svg" alt="Restaurant">
                             <h4>Restaurant Design</h4>
-                            <p>Custom layouts for restaurants and cafes.</p>
-                            <button class="cta-button" data-service="restaurant">Get Quote</button>
+                            <p>Design and build a restaurant that reflects your brand and maximizes efficiency.</p>
                         </div>
-                        <!-- Add more commercial sub-services -->
+                        <div class="sub-service">
+                            <img src="bar-icon.svg" alt="Bar">
+                            <h4>Bar Design</h4>
+                            <p>Build a stylish and functional bar that attracts customers and enhances their experience.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="clinic-icon.svg" alt="Clinic">
+                            <h4>Clinic Design</h4>
+                            <p>Create a professional and comfortable environment for your medical clinic.</p>
+                        </div>
+                        <div class="sub-service">
+                            <img src="office-icon.svg" alt="Office">
+                            <h4>Office Space</h4>
+                            <p>Design and construct office spaces that promote productivity and collaboration.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Form Section -->
-    <section id="form-section" class="section hidden">
+<!-- Form Section -->
+    <section id="form-section" class="section">
         <div class="container">
             <h2>Start Your Project</h2>
             <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
-                <!-- Form fields here -->
+                <input type="hidden" name="_subject" value="New Project Inquiry">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="service_type" id="service_type">
+
+                <!-- Name -->
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name</label>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone</label>
+                    <div class="error-message" id="phone-error"></div>
+                </div>
+
+                <!-- Construction Documents Question -->
+                <div class="form-group">
+                    <label for="documents">Do you have construction documents or are you working with an architect?</label>
+                    <select id="documents" name="documents" required>
+                        <option value="yes">Yes, I have documents</option>
+                        <option value="no">No, I need a consultation</option>
+                    </select>
+                </div>
+
+                <!-- File Upload Section -->
+                <div id="upload-section">
+                    <label for="file">Upload Construction Documents or Floorplan:</label>
+                    <input type="file" id="file" name="file">
+                </div>
+
+                <!-- Photo Upload Section -->
+                <div id="photo-section">
+                    <label for="photo">Upload Photos of the Area (e.g., Bathroom, Kitchen, etc.):</label>
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                </div>
+
+                <!-- Additional Details -->
+                <div class="form-group">
+                    <label for="message">Additional Details:</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="cta-button">Submit</button>
             </form>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Cielo Alto Construction Inc. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
