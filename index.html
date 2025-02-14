@@ -9,8 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">Cielo Alto</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#form-section" class="cta-button">Get a Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="hero-content">
             <h1>Cielo Alto Construction Inc.</h1>
             <p class="tagline">Building Dreams, Crafting Excellence</p>
@@ -29,7 +41,7 @@
                     <h3>Bathroom</h3>
                     <p class="service-description">Expert bathroom remodeling and renovation services.</p>
                     <button class="toggle-details">Learn More</button>
-                    <div class="details" style="display: none;">
+                    <div class="details">
                         <p>We specialize in modern bathroom designs, including tile work, plumbing, and lighting.</p>
                     </div>
                 </div>
@@ -38,7 +50,7 @@
                     <h3>Kitchen</h3>
                     <p class="service-description">Modern kitchen designs and renovations.</p>
                     <button class="toggle-details">Learn More</button>
-                    <div class="details" style="display: none;">
+                    <div class="details">
                         <p>From cabinets to countertops, we create functional and stylish kitchens.</p>
                     </div>
                 </div>
@@ -47,7 +59,7 @@
                     <h3>Flooring</h3>
                     <p class="service-description">High-quality flooring installation and repair.</p>
                     <button class="toggle-details">Learn More</button>
-                    <div class="details" style="display: none;">
+                    <div class="details">
                         <p>We offer hardwood, tile, and carpet flooring solutions.</p>
                     </div>
                 </div>
@@ -56,33 +68,10 @@
                     <h3>Renovation</h3>
                     <p class="service-description">Full home and office renovation services.</p>
                     <button class="toggle-details">Learn More</button>
-                    <div class="details" style="display: none;">
+                    <div class="details">
                         <p>Transform your space with our comprehensive renovation services.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <div class="container">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial active">
-                    <p>"Cielo Alto Construction transformed our home! Their attention to detail is unmatched."</p>
-                    <span>- Jane Doe</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Professional, timely, and high-quality work. Highly recommend!"</p>
-                    <span>- John Smith</span>
-                </div>
-                <div class="testimonial">
-                    <p>"Excellent service from start to finish. We couldn't be happier!"</p>
-                    <span>- Sarah Johnson</span>
-                </div>
-                <button class="carousel-button prev">&#10094;</button>
-                <button class="carousel-button next">&#10095;</button>
             </div>
         </div>
     </section>
