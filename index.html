@@ -36,7 +36,7 @@
             <h2>Our Services</h2>
             <div class="service-categories">
                 <!-- Residential Category -->
-                <div class="category-card">
+                <div class="category-card residential">
                     <div class="category-header">
                         <h3>Residential Services</h3>
                         <button class="learn-more">Learn More</button>
@@ -48,12 +48,18 @@
                             <p>Complete bathroom transformations with modern designs.</p>
                             <button class="cta-button" data-service="bathroom">Get Quote</button>
                         </div>
-                        <!-- Add other residential sub-services similarly -->
+                        <div class="sub-service">
+                            <img src="kitchen-icon.svg" alt="Kitchen">
+                            <h4>Kitchen Renovation</h4>
+                            <p>Modern kitchen designs and renovations.</p>
+                            <button class="cta-button" data-service="kitchen">Get Quote</button>
+                        </div>
+                        <!-- Add more residential sub-services -->
                     </div>
                 </div>
 
                 <!-- Commercial Category -->
-                <div class="category-card">
+                <div class="category-card commercial">
                     <div class="category-header">
                         <h3>Commercial Services</h3>
                         <button class="learn-more">Learn More</button>
@@ -65,7 +71,13 @@
                             <p>Professional workspace design and construction.</p>
                             <button class="cta-button" data-service="office">Get Quote</button>
                         </div>
-                        <!-- Add other commercial sub-services similarly -->
+                        <div class="sub-service">
+                            <img src="restaurant-icon.svg" alt="Restaurant">
+                            <h4>Restaurant Design</h4>
+                            <p>Custom layouts for restaurants and cafes.</p>
+                            <button class="cta-button" data-service="restaurant">Get Quote</button>
+                        </div>
+                        <!-- Add more commercial sub-services -->
                     </div>
                 </div>
             </div>
@@ -74,7 +86,12 @@
 
     <!-- Form Section -->
     <section id="form-section" class="section hidden">
-        <!-- Keep existing form structure -->
+        <div class="container">
+            <h2>Start Your Project</h2>
+            <form id="project-form" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+                <!-- Form fields here -->
+            </form>
+        </div>
     </section>
 
     <script src="script.js"></script>
