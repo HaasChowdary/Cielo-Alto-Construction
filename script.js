@@ -16,27 +16,6 @@ document.querySelectorAll('.toggle-details').forEach(button => {
     });
 });
 
-// Testimonial Carousel
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial');
-const totalTestimonials = testimonials.length;
-
-function showTestimonial(index) {
-    testimonials.forEach((testimonial, i) => {
-        testimonial.classList.toggle('active', i === index);
-    });
-}
-
-document.querySelector('.prev').addEventListener('click', () => {
-    currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-    showTestimonial(currentTestimonial);
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-    showTestimonial(currentTestimonial);
-});
-
 // Form Submission Handling
 document.getElementById('project-form').addEventListener('submit', function (e) {
     e.preventDefault();
