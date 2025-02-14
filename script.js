@@ -2,7 +2,19 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Show the target section
+        targetSection.classList.add('active');
+
+        // Smooth scroll to the target section
+        targetSection.scrollIntoView({
             behavior: 'smooth'
         });
     });
