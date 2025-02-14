@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
+        :root {
+            --primary: #2A4B7C;
+            --secondary: #FF6B35;
+            --accent: #4ECDC4;
+            --light: #F7F9FC;
+            --dark: #1A2930;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,148 +21,144 @@
             transition: all 0.3s ease;
         }
 
-        :root {
-            --primary: #2c3e50;
-            --secondary: #e67e22;
-            --accent: #3498db;
-            --light: #f9f9f9;
-            --dark: #1a1a1a;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--light);
             color: var(--dark);
+            line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
-            background: var(--primary);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Home Section */
+        #home {
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background: var(--secondary);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
+            align-items: center;
             text-align: center;
             padding: 2rem;
-            margin-top: 60px;
+            background: linear-gradient(45deg, var(--primary), #1D3557);
+            color: white;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
+        .hero-title {
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background: var(--light);
+        .hero-caption {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .service-category h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .service-tile {
-            padding: 1.5rem;
-            margin: 1rem 0;
-            background: var(--light);
-            border-radius: 10px;
+        .cta-button {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
 
-        .service-tile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            background: var(--secondary);
-            color: white;
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        #services {
+            padding: 4rem 2rem;
+            background: var(--light);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-tile {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-tile.residential {
+            border-left: 5px solid var(--secondary);
+        }
+
+        .service-tile.commercial {
+            border-left: 5px solid var(--accent);
+        }
+
+        .service-category-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-item::before {
+            content: "▹";
+            color: var(--secondary);
+            margin-right: 1rem;
         }
 
         /* Form Section */
-        .form-section {
-            min-height: 100vh;
+        #form-section {
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: none;
+            background: var(--primary);
+            color: white;
         }
 
         .form-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            background: white;
-            padding: 3rem;
+            padding: 2.5rem;
+            background: rgba(255,255,255,0.1);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.7);
         }
 
         .form-group label {
@@ -165,129 +167,119 @@
             font-weight: 600;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--secondary);
-            outline: none;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
+            .hero-title {
                 font-size: 2.5rem;
             }
 
-            .service-grid {
+            .services-container {
                 grid-template-columns: 1fr;
             }
 
-            .form-container {
+            .service-tile {
                 padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Cielo Alto</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#form" class="cta">Get Quote</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Building Your Vision, Crafting Excellence</h1>
-            <p>20+ years of transforming spaces into masterpieces</p>
-        </div>
+    <!-- Home Section -->
+    <section id="home">
+        <h1 class="hero-title">Cielo Alto Construction</h1>
+        <p class="hero-caption">20+ years of transforming spaces into masterpieces</p>
+        <button class="cta-button" onclick="scrollToSection('services')">Our Services</button>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="service-grid">
+    <section id="services">
+        <div class="services-container">
             <!-- Residential Services -->
-            <div class="service-category">
-                <h2>Residential Services</h2>
-                <div class="service-tile" data-service="bathroom">
-                    <h3>Bathroom Remodeling</h3>
-                    <p>Complete transformations with modern designs</p>
-                </div>
-                <!-- Add other residential services -->
+            <div class="service-tile residential">
+                <h2 class="service-category-title">Residential Services</h2>
+                <ul class="service-list">
+                    <li class="service-item">Bathroom Remodeling</li>
+                    <li class="service-item">Kitchen Renovation</li>
+                    <li class="service-item">Flooring Installation</li>
+                    <li class="service-item">Full Home Renovation</li>
+                    <li class="service-item">Roofing Services</li>
+                    <li class="service-item">Fencing Installation</li>
+                    <li class="service-item">Gutter Systems</li>
+                    <li class="service-item">Concrete Work</li>
+                </ul>
             </div>
 
             <!-- Commercial Services -->
-            <div class="service-category">
-                <h2>Commercial Services</h2>
-                <div class="service-tile" data-service="office">
-                    <h3>Office Spaces</h3>
-                    <p>Professional workspace design & construction</p>
-                </div>
-                <!-- Add other commercial services -->
+            <div class="service-tile commercial">
+                <h2 class="service-category-title">Commercial Services</h2>
+                <ul class="service-list">
+                    <li class="service-item">Salon Design & Build</li>
+                    <li class="service-item">Restaurant Construction</li>
+                    <li class="service-item">Bar/Lounge Buildouts</li>
+                    <li class="service-item">Medical Clinic Setup</li>
+                    <li class="service-item">Office Space Design</li>
+                    <li class="service-item">Retail Buildouts</li>
+                    <li class="service-item">Commercial Renovation</li>
+                    <li class="service-item">ADA Compliance</li>
+                </ul>
             </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="cta-button" onclick="scrollToSection('form-section')">Get a Quote</button>
         </div>
     </section>
 
     <!-- Form Section -->
-    <section class="form-section" id="form">
+    <section id="form-section">
         <div class="form-container">
-            <h2>Start Your Project</h2>
+            <h2 style="margin-bottom: 2rem; text-align: center;">Start Your Project</h2>
             <form id="projectForm">
-                <!-- Form fields -->
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Select Service Type</option>
+                        <optgroup label="Residential">
+                            <option>Bathroom Remodeling</option>
+                            <option>Kitchen Renovation</option>
+                            <!-- Add all residential options -->
+                        </optgroup>
+                        <optgroup label="Commercial">
+                            <option>Salon Design</option>
+                            <option>Restaurant Construction</option>
+                            <!-- Add all commercial options -->
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Project Details"></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Submit Request</button>
             </form>
         </div>
     </section>
 
     <script>
-        // Navigation handling
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                showSection(targetId);
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
             });
-        });
-
-        // Service tile interactions
-        document.querySelectorAll('.service-tile').forEach(tile => {
-            tile.addEventListener('click', function() {
-                const serviceType = this.dataset.service;
-                showSection('form');
-                document.getElementById('serviceType').value = serviceType;
-            });
-        });
-
-        // Show/hide sections
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById(sectionId).style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Initial setup
-        showSection('home');
+        // Form validation
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Thank you! Your request has been submitted.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
