@@ -20,6 +20,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Handle "Get a Quote" button clicks
+document.querySelectorAll('.service-card .cta-button').forEach(button => {
+    button.addEventListener('click', function () {
+        // Get the service type from the button's data attribute
+        const serviceType = this.getAttribute('data-service');
+
+        // Scroll to the form section
+        const formSection = document.getElementById('form-section');
+        formSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Set the service type in the form dropdown
+        const serviceDropdown = document.getElementById('service');
+        serviceDropdown.value = serviceType;
+
+        // Show the form section if it's hidden
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.remove('active');
+        });
+        formSection.classList.add('active');
+    });
+});
+
 // Form Submission Handling
 document.getElementById('project-form').addEventListener('submit', function (e) {
     e.preventDefault();
