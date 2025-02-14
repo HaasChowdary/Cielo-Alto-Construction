@@ -5,183 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Alto Construction</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2A4B7C;
-            --secondary: #FF6B35;
-            --accent: #4ECDC4;
-            --light: #F7F9FC;
-            --dark: #1A2930;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Home Section */
-        #home {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(45deg, var(--primary), #1D3557);
-            color: white;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-caption {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        .cta-button {
-            background: var(--secondary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Services Section */
-        #services {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-tile {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-tile.residential {
-            border-left: 5px solid var(--secondary);
-        }
-
-        .service-tile.commercial {
-            border-left: 5px solid var(--accent);
-        }
-
-        .service-category-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-item {
-            padding: 1.2rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-
-        .service-item:last-child {
-            border-bottom: none;
-        }
-
-        .service-item::before {
-            content: "▹";
-            color: var(--secondary);
-            margin-right: 1rem;
-        }
-
-        /* Form Section */
-        #form-section {
-            padding: 4rem 2rem;
-            background: var(--primary);
-            color: white;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 2.5rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.05);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .services-container {
-                grid-template-columns: 1fr;
-            }
-
-            .service-tile {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Home Section -->
@@ -232,54 +56,85 @@
     <!-- Form Section -->
     <section id="form-section">
         <div class="form-container">
-            <h2 style="margin-bottom: 2rem; text-align: center;">Start Your Project</h2>
-            <form id="projectForm">
+            <form id="projectForm" action="https://formsubmit.co/peterxf2499@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="New Project Inquiry">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
                 <div class="form-group">
-                    <input type="text" placeholder="Full Name" required>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message"></span>
                 </div>
+                
                 <div class="form-group">
-                    <input type="email" placeholder="Email Address" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message"></span>
                 </div>
+                
                 <div class="form-group">
-                    <input type="tel" placeholder="Phone Number" required>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <span class="error-message"></span>
                 </div>
+                
                 <div class="form-group">
-                    <select required>
+                    <label for="service-type">Select Service Type</label>
+                    <select id="service-type" name="service" required>
                         <option value="">Select Service Type</option>
                         <optgroup label="Residential">
-                            <option>Bathroom Remodeling</option>
-                            <option>Kitchen Renovation</option>
-                            <!-- Add all residential options -->
+                            <option value="bathroom">Bathroom Remodeling</option>
+                            <option value="kitchen">Kitchen Renovation</option>
+                            <option value="flooring">Flooring Installation</option>
+                            <option value="renovation">Full Home Renovation</option>
+                            <option value="roofing">Roofing Services</option>
+                            <option value="fencing">Fencing Installation</option>
+                            <option value="gutters">Gutter Systems</option>
+                            <option value="concrete">Concrete Work</option>
                         </optgroup>
                         <optgroup label="Commercial">
-                            <option>Salon Design</option>
-                            <option>Restaurant Construction</option>
-                            <!-- Add all commercial options -->
+                            <option value="salon">Salon Design & Build</option>
+                            <option value="restaurant">Restaurant Construction</option>
+                            <option value="bar">Bar/Lounge Buildouts</option>
+                            <option value="clinic">Medical Clinic Setup</option>
+                            <option value="office">Office Space Design</option>
+                            <option value="retail">Retail Buildouts</option>
+                            <option value="commercial-renovation">Commercial Renovation</option>
+                            <option value="ada">ADA Compliance</option>
                         </optgroup>
                     </select>
+                    <span class="error-message"></span>
                 </div>
+                
                 <div class="form-group">
-                    <textarea rows="5" placeholder="Project Details"></textarea>
+                    <label for="documents">Construction Documents</label>
+                    <select id="documents" name="documents" required>
+                        <option value="yes">I have construction documents</option>
+                        <option value="no">I need a consultation</option>
+                    </select>
                 </div>
-                <button type="submit" class="cta-button" style="width: 100%;">Submit Request</button>
+                
+                <div class="form-group file-upload">
+                    <input type="file" id="construction-files" name="construction_files" multiple>
+                    <label for="construction-files">Upload Documents (PDF, CAD, etc.)</label>
+                </div>
+                
+                <div class="form-group file-upload">
+                    <input type="file" id="project-photos" name="project_photos" accept="image/*" multiple>
+                    <label for="project-photos">Upload Project Photos</label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="details">Additional Project Details</label>
+                    <textarea id="details" name="details" rows="5" placeholder="Enter additional details..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button">Submit Request</button>
             </form>
         </div>
     </section>
 
-    <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Form validation
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            alert('Thank you! Your request has been submitted.');
-            this.reset();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
