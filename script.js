@@ -8,14 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Toggle Service Details
-document.querySelectorAll('.toggle-details').forEach(button => {
-    button.addEventListener('click', () => {
-        const details = button.nextElementSibling;
-        details.style.display = details.style.display === 'none' ? 'block' : 'none';
-    });
-});
-
 // Form Submission Handling
 document.getElementById('project-form').addEventListener('submit', function (e) {
     e.preventDefault();
