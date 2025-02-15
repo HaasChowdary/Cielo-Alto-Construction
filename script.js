@@ -1,44 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sticky Navigation Bar
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            navbar.style.backgroundColor = 'rgba(26, 42, 58, 0.9)';
-        } else {
-            navbar.style.backgroundColor = 'var(--primary)';
-        }
-    });
-
-    // Back to Top Button
-    const backToTopButton = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = 'block';
-        } else {
-            backToTopButton.style.display = 'none';
-        }
-    });
-
-    // Smooth Scroll Functionality
-    document.querySelectorAll('.cta-button, .nav-links a').forEach(button => {
+    // Smooth scroll functionality for all navigation links
+    document.querySelectorAll('.cta-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href') || this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            const targetId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
             scrollToSection(targetId);
         });
     });
 
-    // Scroll to Top Function
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Form Validation and Submission
+    // Form validation
     const form = document.getElementById('projectForm');
     form.addEventListener('submit', handleFormSubmit);
-});
-
-// Rest of the script.js remains the same...
 
     // Intersection Observer for animations
     const observerOptions = {
