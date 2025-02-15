@@ -222,7 +222,6 @@ body {
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     background: rgba(255,255,255,0.1); /* Keep background translucent on focus */
 }
-
 /* Dropdown Menu Enhancements */
 .form-group select {
     appearance: none; /* Remove default arrow */
@@ -230,8 +229,8 @@ body {
     padding: 1rem;
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 8px;
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: rgba(255,255,255,0.1); /* Semi-transparent background */
+    color: white; /* Ensure text is white */
     font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
@@ -241,23 +240,28 @@ body {
     background-size: 12px;
 }
 
+/* Ensure the dropdown text is visible on focus */
 .form-group select:focus {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background: rgba(255,255,255,0.1); /* Keep background translucent on focus */
+    color: white; /* Ensure text is white */
 }
 
 /* Dropdown Options */
 .form-group select option {
-    background: rgba(0,0,0,0.8); /* Dark background for options */
-    color: white;
+    background: var(--primary); /* Use the primary color for the background */
+    color: white; /* Ensure text is white */
     padding: 0.5rem;
 }
 
 /* Hover Effect for Options */
 .form-group select option:hover {
     background: var(--accent); /* Highlight option on hover */
+    color: white;
 }
+
 
 /* File Upload Enhancements */
 .file-upload {
