@@ -86,7 +86,7 @@ function handleFormSubmit(e) {
 
         // Add custom formsubmit.co parameters
         formData.append('_replyto', form.email.value);
-        formData.append('_next', 'https://peterxf2499@gmail.com/thank-you.html');
+        formData.append('_next', 'https://yourwebsite.com/thank-you.html'); // Replace with your thank-you page URL
 
         // Simulate actual form submission
         fetch(form.action, {
