@@ -75,14 +75,19 @@ function handleFormSubmit(e) {
 
     if (isValid) {
         showLoading(true);
-        
+
         // Create FormData and handle files
         const formData = new FormData(form);
-        
+
+        // Log FormData for debugging
+        for (let [key, value] of formData.entries()) {
+            console.log(key, value);
+        }
+
         // Add custom formsubmit.co parameters
         formData.append('_replyto', form.email.value);
         formData.append('_next', 'https://peterxf2499@gmail.com/thank-you.html');
-        
+
         // Simulate actual form submission
         fetch(form.action, {
             method: 'POST',
@@ -95,6 +100,7 @@ function handleFormSubmit(e) {
             scrollToSection('home');
         })
         .catch(error => {
+            console.error('Error:', error);
             showFieldError(form, 'Submission failed. Please try again.');
         })
         .finally(() => {
